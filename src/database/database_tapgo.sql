@@ -1,0 +1,12 @@
+DROP DATABASE IF EXISTS tapgo;
+CREATE DATABASE tapgo;
+USE tapgo;
+
+CREATE TABLE usuario(
+idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(45),
+email VARCHAR(45) UNIQUE,
+senha VARCHAR(45)
+);
+
+SELECT * FROM usuario;

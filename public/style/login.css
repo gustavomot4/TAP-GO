@@ -13,7 +13,7 @@ body {
     align-items: center;
     flex-direction: column;
     height: 100vh;
-    background-image: url('../assets/Green\ and\ Black\ Modern\ Soccer\ Presentation.png');
+    background-image: url('../assets/background-login.png');
     box-sizing: border-box;
 }
 
@@ -70,6 +70,7 @@ span {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .container-cadastro-visivel {
@@ -108,3 +109,43 @@ span {
     color: #fff;
     transform: scale(1.03);
 }
+
+
+.loading-div {
+  width: 50px;
+  display: none;
+}
+
+.loading-div img {
+  height: 50px;
+  width: 50px;
+}
+
+.loading-div {
+  width: 50px;
+  margin: auto;
+  display: none;
+}
+
+.loading-div img {
+  height: 50px;
+  width: 50px;
+}
+
+
+#div_erros_login {
+  display: none
+}
+
+
+.card_erro {
+  display: none;
+  width: 50%;
+}
+
+.card_erro #mensagem_erro{
+  font-weight: 500;
+  font-size: 1.4rem ;
+  color: #fff
+}
+

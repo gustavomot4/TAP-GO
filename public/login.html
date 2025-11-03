@@ -6,19 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style/login.css">
+    <script src="./js/sessao.js"></script>
+
 </head>
 
 <body>
-    <div class="div conteudo">
+    <div class="conteudo">
+
         <div class="container-login-visivel" id="container_login_visivel">
             <div class="container-login" id="container_login">
                 <label>
                     <span>Informe o email:</span>
-                    <input id="ipt_email" type="text" placeholder="Email:">
+                    <input id="ipt_email_login" type="text" placeholder="Email:">
                 </label>
                 <label>
                     <span>Informe a senha:</span>
-                    <input id="ipt_senha" type="text" placeholder="Senha:">
+                    <input id="ipt_senha_login" type="text" placeholder="Senha:">
                 </label>
                 <div class="botao-link">
                     <button onclick="Login()">
@@ -27,6 +30,10 @@
                     <span onclick="Alternar()" class="span-alternar">Ainda não tem conta?</span>
                 </div>
             </div>
+
+            <div id="div_aguardar" class="loading-div">
+                <img src="./assets/loading.gif" id="loading-gif">
+            </div>
         </div>
 
 
@@ -34,19 +41,19 @@
             <div class="container-cadastro" id="container_cadastro">
                 <label>
                     <span>Informe o seu nome:</span>
-                    <input id="ipt_nome" type="text" placeholder="Usuário:">
+                    <input id="ipt_nome_cadastro" type="text" placeholder="Usuário:">
                 </label>
                 <label>
                     <span>Informe o email:</span>
-                    <input id="ipt_email" type="text" placeholder="Email:">
+                    <input id="ipt_email_cadastro" type="text" placeholder="Email:">
                 </label>
                 <label>
                     <span>Informe a senha:</span>
-                    <input id="ipt_senha" type="text" placeholder="Senha:">
+                    <input id="ipt_senha_cadastro" type="text" placeholder="Senha:">
                 </label>
                 <label>
                     <span>Confirme a senha:</span>
-                    <input id="ipt_senha" type="text" placeholder="Senha:">
+                    <input id="ipt_senha_confirmada" type="text" placeholder="Senha:">
                 </label>
                 <div class="botao-link">
                     <button onclick="Cadastrar()">
@@ -55,7 +62,13 @@
                     <span onclick="Alternar()" class="span-alternar">Já tem conta?</span>
                 </div>
             </div>
+
         </div>
+ 
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro">Deu errom ae</span>
+            </div>
+
     </div>
 </body>
 
