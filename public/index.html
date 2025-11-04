@@ -1,17 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tap Go</title>
+    <link rel="stylesheet" href="./style/index.css">
+    <script src="./js/index.js"></script>
+
 </head>
+
 <body>
     <div class="navbar">
-        <div class="navbar-img"></div>
-        <div class="navbar-link"></div>
-        <div class="navbar-link"><a href="login.html">cadastro</div>
-        <div class="navbar-link"><a href="login.html">login</div>
+        <a href="#"><div class="navbar-img"></div></a>
+
+        <div class="navbar-links">
+            <div class="navbar-link">Início</div>
+            <div class="navbar-link">Como Jogar</div>
+            <div class="navbar-link">Contatos</div>
+            <div class="navbar-link">Sobre Mim</div>
+        </div>
+
+        <div class="navbar-buttons">
+            <button onclick="MudarPagina()" id="btn_login" class="login">Login</button>
+            <button onclick="MudarPagina()" id="btn_cadastro" class="cadastrar">Cadastrar</button>
+        </div>
+
     </div>
-    
+
+    <div class="container_hero">
+        <div class="hero_conteudo">
+            <img src="./assets/TAPGO-GRANDE.png">
+            <span>
+                Crie seu estilo, desafie seus amigos e conquiste respeito com cada jogada.
+                Com uma gameplay dinâmica e cheia de atitude, Tap Go traz o espírito das peladas, da improvisação e da
+                paixão verdadeira pelo futebol.
+                Aqui, um toque muda tudo.</span>
+            <button>Saiba Mais</button>
+        </div>
+        <div class="hero_img">
+            <img src="">
+        </div>
+    </div>
 </body>
+
 </html>

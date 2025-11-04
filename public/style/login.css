@@ -24,7 +24,7 @@ button {
     font-size: 1.6rem;
     font-weight: 600;
     color: #fff;
-    background-color: #09f368;
+    background-color: #07f468;
     width: 100%;
     padding: 10px;
     transition: background-color 0.3s, translate 0.3s;
@@ -61,7 +61,7 @@ input {
 }
 
 span {
-    color: #09f368
+    color: #07f468
 }
 
 .conteudo {
