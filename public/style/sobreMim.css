@@ -56,7 +56,7 @@
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    background-image: url(../assets/fundoQuadrado.png);
+    background-image: url(../assets/background/fundoQuadrado.png);
 }
 
 .hero_img img {

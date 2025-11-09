@@ -7,46 +7,67 @@
     <title>TAP GO</title>
     <link rel="stylesheet" href="./style/tapgo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-
 </head>
 
 <body>
-    <div class="container">
-        <!-- NavBar Lateral -->
-        <div class="navbar">
-            <div class="nav-logo">
-                <img src="./assets/TAPGO.png">
-            </div>
+    <div class="tela-jogo">
+        <!-- tela inicial -->
+        <div id="tela_inicial_visivel" style="display: block;">
+            <div class="tela-inicial">
 
-            <div class="nav-links">
-                <button class="btn-jogar">
+                <button class="btn-sair" id="btn_sair" style="opacity: 0;" onclick="MudarPagina()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="btn-sair-span">Sair</span>
+                </button>
+
+                <video autoplay class="video-intro" id="videoIntro">
+                    <source src="./assets/background/intro.mp4" type="video/mp4">
+                </video>
+
+                <button class="btn-jogar" id="btn_jogar" style="opacity: 0;" onclick="Jogar()">
                     <span>Jogar</span>
                 </button>
-                <a href="">Ultimos Jogos</a>
-                <a href="">Ranking</a>
-                <a href="">Como Jogar?</a>
-            </div>
 
-
-            <div class="nav-footer">
-                <a href="../login.html">
-                    <button class="btn-sair">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span>Sair</span>
-                    </button>
-                </a>
             </div>
         </div>
-        <div class="conteudo">
-            <button class="btn-jogar">
-                <span>Jogar</span>
-            </button>
+
+        <!-- tela menu -->
+        <div id="tela_menu_visivel" style="display: none;">
+            <div class="tela-menu">
+                <div class="navbar">
+                    <div class="nav-logo">
+                        <img src="./assets/TAPGO-GRANDE.png" alt="Logo TAPGO">
+                    </div>
+
+                    <div class="nav-link">
+                        <p>Jogar</p>
+                    </div>
+                    <div class="nav-link">
+                        <p>Últimas Partidas</p>
+                    </div>
+                    <div class="nav-link">
+                        <p>Ranking</p>
+                    </div>
+                    <div class="nav-link">
+                        <p>Como Jogar?</p>
+                    </div>
+                    <div class="nav-link">
+                        <p onclick="MudarPaginaLogin()">Sair</p>
+                    </div>
+                </div>
+                <div class="conteudo-menu">
+                    <div class="info-usuario">
+                        <div class="nome-usuario"><p id="nome_usuario"></p></div>
+                        <div class="img-usuario"><img src="./assets/escudoMeninosDoMorro.png" alt=""></div>
+                        <div class="nivel-usuario"><p>Level 1</p></div>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
-
-
-
 </body>
 
 </html>
+<script src="./js/tapgo.js"></script>
+<script src="./js/index.js"></script>

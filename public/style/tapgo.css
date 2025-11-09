@@ -21,74 +21,29 @@ body {
     color: var(--cor-secundaria);
 }
 
-.container {
+
+/* Container da tela inicial */
+.tela-inicial {
+    position: relative;
     display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100vh;
+}
+
+.video-intro {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-
-.navbar {
-    width: 20%;
-    background: var(--cor-fundo-principal);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
-}
-
-.nav-logo {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.nav-logo img {
-    width: 140px;
-    margin-bottom: 15px;
-}
-
-.nav-logo h3 {
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.nav-links {
-    flex: 1;
-    padding: 20px 0;
-}
-
-.nav-links a {
-    display: flex;
-    align-items: center;
-    padding: 10px 25px;
-    color: rgba(255, 255, 255, 0.8);
-    transition: all 0.3s ease;
-}
-
-.nav-links a:hover{
-    color: #fff;
-    translate: 3px;
-}
-.nav-link-pai {
-    margin-left: -5px;
-    margin-bottom: -5px;
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.nav-footer {
-    padding: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
 
 
 .btn-jogar {
-    width: 85%;
-    padding: 8px;
+    width: 20%;
+    padding: 10px;
     background-color: var(--cor-primaria);
     border: none;
     border-radius: 8px;
@@ -97,19 +52,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 7.5%;
-    font-size: 20px;
-
+    font-size: 2rem;
+    z-index: 1;
+    transition: opacity 1s ease-in;
 }
-
 
 .btn-jogar:hover {
     transform: scale(1.05);
 }
 
 .btn-sair {
-    width: 100%;
-    padding: 12px;
+    padding: 10px 20px;
     background-color: rgba(255, 255, 255, 0.1);
     border: none;
     border-radius: 8px;
@@ -118,30 +71,108 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1rem;
+    z-index: 1;
+    transition: all 0.3s ease, opacity 1s ease-in;
+    position: absolute;
+    top: 20px;
+    left: 20px;
 }
 
-.btn-sair:hover{
-    transform: scale(1.05); 
+.btn-sair:hover {
+    transform: translateX(5px);
 }
 
-
-/*estilização da font awesome*/
-.btn-sair i {
-    margin-right: 8px;
+.fas {
+    font-size: 20px;
 }
 
-.conteudo {
-    flex: 1;
-    background-image: url('../assets/background/jogo.png');
+.btn-sair-span {
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+/* tela menu */
+
+.tela-menu {
+    position: relative;
+    display: flex;
+    height: 100vh;
+    background-image: url('../assets/background/menu.png');
     background-size: cover;
     background-position: center;
+}
+
+.navbar {
+    width: 30%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 3% 1.5%;
+    gap: 30px;
+    margin-left: 5%;
+    box-sizing: border-box;
+}
+
+
+.navbar img {
+    width: 250px;
+    height: auto;
+}
+
+.nav-link {
+    display: flex;
+    font-size: 2rem;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.nav-link p {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0;
+}
+
+.nav-link p:hover {
+    color: #555;
+    transform: translateX(3px);
+}
+
+.conteudo-menu {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding: 5% 5%;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.info-usuario {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 15px;
+}
+
+.nome-usuario p,
+.nivel-usuario p {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.img-usuario {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-right: 1px solid #fff;
+    padding-right: 10px;
+    height: 40px;
 }
-.conteudo button{
-    width: 20%;
-    padding: 10px;
-    font-size: 2.0rem;
-    margin-right: 8%;
+
+.img-usuario img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
 }

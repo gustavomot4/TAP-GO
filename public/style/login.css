@@ -14,6 +14,7 @@ body {
   flex-direction: column;
   height: 100vh;
   background-image: url('../assets/background/principal.png');
+  background-size: cover;
   box-sizing: border-box;
 }
 
