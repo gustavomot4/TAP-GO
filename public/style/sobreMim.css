@@ -7,9 +7,9 @@
 
 .container_hero {
     width: 100%;
-    min-height: 85vh;
+    min-height: 100vh;
     display: flex;
-    align-items: stretch; 
+    align-items: stretch;
     justify-content: space-between;
     color: var(--cor-secundaria);
     font-family: var(--fonte-principal);
@@ -17,7 +17,7 @@
 }
 
 .hero_conteudo {
-    width: 50%; 
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,15 +29,15 @@
 }
 
 .hero_conteudo span {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     line-height: 2rem;
     text-align: justify;
 }
 
-.conteudo{
+.conteudo {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 90%;
     gap: 20px;
 }
 
@@ -55,13 +55,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--cor-fundo-principal);
     box-sizing: border-box;
+    background-image: url(../assets/fundoQuadrado.png);
 }
 
 .hero_img img {
     width: 80%;
-    max-width: 480px;
+    max-width: 768px;
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -74,20 +74,118 @@
 }
 
 
-.bloco2 .hero_conteudo {
-    background-color: var(--cor-fundo-secundario);
-}
-.bloco2 .hero_img {
-    background-color: var(--cor-fundo-principal);
+/*INICIO DO FOOTER*/
+
+.footer {
+    background-size: cover;
+    color: #fff;
 }
 
-.bloco3 .hero_conteudo {
-    background-color: var(--cor-fundo-secundario);
+.footer_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 30px 140px;
+    gap: 80px;
 }
 
-.bloco4 .hero_conteudo {
-    background-color: var(--cor-fundo-secundario);
+.footer_container h4 {
+    font-size: 17px;
+    margin-bottom: 10px;
+    font-weight: 500;
 }
-.bloco4 .hero_img {
-    background-color: var(--cor-fundo-principal);
+
+.atalhos_container {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+}
+
+.duvidas_container {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+}
+
+.contato_email_container {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    margin-left: auto;
+}
+
+.footer_container a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #fff;
+}
+
+.footer_container a:hover {
+    color: #555;
+}
+
+.contato_email_container input {
+    padding: 10px;
+    width: 260px;
+    border: none;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+.contato_email_container button {
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.contato_email_container button:hover {
+    background-color: var(--cor-secundaria);
+    color: #000;
+
+}
+
+
+/* LINHA INFERIOR */
+.direitos_container {
+    border-top: 1px solid white;
+    margin-top: 40px;
+    padding-top: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 14px;
+    margin-left: 60px;
+    margin-right: 60px;
+    color: #555;
+}
+
+.politicas_container {
+    display: flex;
+    gap: 30px;
+    
+}
+.direitos_container p{
+    cursor: pointer;
+}
+.direitos_container p:hover{
+    color: #fff;
+}
+.rede_social_container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.social-icon {
+    font-size: 30px;
+    color: #555;
+}
+
+.social-icon:hover{
+    color: #fff;
 }

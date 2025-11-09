@@ -8,8 +8,8 @@
     <link rel="shortcut icon" href="assets/TAPGO.png" type="image/x-icon">
     <link rel="stylesheet" href="./style/navbar.css">
     <link rel="stylesheet" href="./style/sobreMim.css">
+    <script src="./js/index.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-
 
 </head>
 
@@ -29,8 +29,8 @@
         </div>
 
         <div class="navbar-buttons">
-            <button onclick="MudarPagina()" id="btn_login" class="login">Login</button>
-            <button onclick="MudarPagina()" id="btn_cadastro" class="cadastrar">Cadastrar</button>
+            <button onclick="MudarPaginaLogin()" id="btn_login" class="login">Login</button>
+            <button onclick="MudarPaginaCadastro()" id="btn_cadastro" class="cadastrar">Cadastrar</button>
         </div>
 
     </div>
@@ -40,64 +40,95 @@
         <div class="hero_conteudo">
             <div class="conteudo">
                 <i class="fa-solid fa-futbol icon"></i>
-                <span>A minha <span class="palavra-chave">paixão</span> por futebol começou desde cedo. Desde pequeno, o
-                    campo sempre foi o meu lugar favorito,
-                    onde aprendi sobre <span class="palavra-chave">disciplina</span>, <span
-                        class="palavra-chave">amizade</span> e o verdadeiro amor pelo jogo.</span>
+                <span>Nos <span class="palavra-chave">Meninos do Morro</span> encontrei mais do que uma <span
+                        class="palavra-chave">equipe</span>:
+                    encontrei amigos e vivi experiências que levarei para a vida toda.
+                    Cada <span class="palavra-chave">projeto extracampo</span> me ensinou o valor da união e da
+                    superação.</span>
             </div>
+
         </div>
         <div class="hero_img">
-            <img src="./assets/primeiraVezEstadio.png" alt="Primeira vez no estádio">
+            <img src="./assets/meninosDoMorroEquipe.png" alt="Primeira vez no estádio">
         </div>
     </div>
 
     <div class="container_hero bloco2">
         <div class="hero_img">
-            <img src="./assets/meninosDoMorroEquipe.png" alt="Equipe Meninos do Morro">
+            <img src="./assets/primeiraVezEstadio.png" alt="Equipe Meninos do Morro">
         </div>
         <div class="hero_conteudo">
             <div class="conteudo">
-                <i class="fa-solid fa-users icon"></i>
-                <span>Com o tempo, aprendi que o futebol não é apenas <span class="palavra-chave">técnica</span>,
-                    mas
-                    também
-                    sobre <span class="palavra-chave">trabalho em equipe</span>, respeito e <span
-                        class="palavra-chave">superação</span>. Cada treino moldou meu caráter.</span>
+                <i class="fa-solid fa-people-group icon"></i>
+                <span>Ir ao estádio pela primeira vez para ver o <span class="palavra-chave">Tricolor</span> foi uma
+                    experiência marcante.
+                    Compartilhar essa emoção com minha <span class="palavra-chave">família</span> tornou tudo ainda mais
+                    especial</span>
             </div>
+
         </div>
     </div>
 
     <div class="container_hero bloco3">
         <div class="hero_conteudo">
             <div class="conteudo">
-                <i class="fa-solid fa-trophy icon"></i>
-                <span>As <span class="palavra-chave">vitórias</span> me ensinaram a valorizar o esforço, e as <span
-                        class="palavra-chave">derrotas</span>, a nunca desistir. O futebol é feito de altos e
-                    baixos, e
-                    é isso que o torna <span class="palavra-chave">mágico</span>.</span>
-            </div>
-        </div>
-
-        <div class="hero_img">
-            <img src="./assets/primeiraVezEstadio.png" alt="Vitória no campo">
-        </div>
-    </div>
-
-    <div class="container_hero bloco4">
-        <div class="hero_img">
-            <img src="./assets/meninosDoMorroEquipe.png" alt="Equipe de futebol">
-        </div>
-        <div class="hero_conteudo">
-            <div class="conteudo">
                 <i class="fa-solid fa-heart icon"></i>
-                <span>Hoje, o futebol representa mais do que um esporte. É parte da minha <span
-                        class="palavra-chave">história</span>, da minha <span class="palavra-chave">vida</span> e da
-                    minha
-                    <span class="palavra-chave">identidade</span>. Um amor que nunca acaba.</span>
+                <span>Em cada partida e jogo disputado, construí<span class="palavra-chave"> amizades</span> profundas
+                    que levarei comigo <span class="palavra-chave">por toda a vida.</span>
             </div>
         </div>
+
+        <div class="hero_img">
+            <img src="./assets/amizades.jpg" alt="Vitória no campo">
+        </div>
     </div>
-    
+
+    <!-- Footer -->
+    <div class="footer_container">
+
+        <div class="atalhos_container">
+            <h4>Atalhos</h4> <br>
+            <a href="./index.html">Home</a> <br>
+            <a href="./index.html">História</a><br>
+            <a href="./sobreMim.html">Sobre Mim</a><br>
+            <a href="./login.html">TAP GO</a><br>
+        </div>
+
+        <div class="duvidas_container">
+            <h4>Dúvidas</h4> <br>
+
+            <a href="">Dúvidas Frequentes</a><br>
+            <a href="">Suporte ao Cliente</a><br>
+        </div>
+
+
+        <div class="contato_email_container">
+            <label>
+                <h4>Entre em contato pelo nosso Email</h4>
+                <input type="text" placeholder="nome@email.com">
+                <button>Enviar</button>
+            </label>
+        </div>
+
+    </div>
+
+    <div class="direitos_container">
+        <p>2025© Todos os direitos reservados</p>
+
+        <div class="politicas_container">
+            <p>Política de Privacidade</p>
+            <p>Termos e Condições</p>
+            <p>Política de Cookies</p>
+        </div>
+
+        <div class="rede_social_container">
+            <a href="https://www.linkedin.com/in/gustavoalvesmota/" target="_blank"> <i class="fab fa-linkedin social-icon"></i></a>
+            <a href="https://github.com/gustavomot4" target="_blank"> <i class="fab fa-github social-icon"></i></a>
+        </div>
+
+    </div>
+
+
 </body>
 
 </html>

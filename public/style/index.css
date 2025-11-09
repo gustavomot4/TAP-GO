@@ -1,18 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
-
-
-/* Hero */
+:root {
+    --cor-primaria: #07f468;
+    --cor-secundaria: #ffffff;
+    --cor-fundo-principal: #161616;
+    --cor-fundo-secundario: #252525;
+    --cor-fundo-terciario: #000;
+}
 
 .container_hero {
     width: 100%;
-    height: 89vh;
-    background-color: var(--cor-fundo-secundario);
+    height: 100vh;
+    background-image: url('../assets/background/principal.png');
+}
+
+/* Hero */
+
+.container_jogo {
+    width: 100%;
+    height: 100vh;
+    background-image: url('../assets/background/chute.png');
+
 }
 
 .hero_conteudo {
     width: 40%;
     height: 100%;
-    background-image: url('../assets/fundoQuadrado.png');
+    background-image: url('../assets/background/fundoQuadrado.png');
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,13 +34,13 @@
 
 }
 
-.hero_conteudo img{
+.hero_conteudo img {
     width: 200px;
     height: 200px;
     display: flex;
 }
 
-.hero_conteudo span{
+.hero_conteudo span {
     width: 70%;
     font-size: 1.3rem;
 }
@@ -48,3 +62,122 @@
 }
 
 
+
+/*INICIO DO FOOTER*/
+
+.footer {
+    background-size: cover;
+    color: #fff;
+}
+
+.footer_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 30px 140px;
+    gap: 80px;
+}
+
+.footer_container h4 {
+    font-size: 17px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.atalhos_container {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+}
+
+.duvidas_container {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+}
+
+.contato_email_container {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    margin-left: auto;
+}
+
+.footer_container a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #fff;
+}
+
+.footer_container a:hover {
+    color: #555;
+}
+
+.contato_email_container input {
+    padding: 10px;
+    width: 260px;
+    border: none;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+.contato_email_container button {
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.contato_email_container button:hover {
+    background-color: var(--cor-secundaria);
+    color: #000;
+
+}
+
+
+/* LINHA INFERIOR */
+.direitos_container {
+    border-top: 1px solid white;
+    margin-top: 40px;
+    padding-top: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 14px;
+    margin-left: 60px;
+    margin-right: 60px;
+    color: #555;
+}
+
+.politicas_container {
+    display: flex;
+    gap: 30px;
+}
+
+
+.direitos_container p {
+    cursor: pointer;
+}
+
+.direitos_container p:hover {
+    color: #fff;
+}
+
+.rede_social_container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.social-icon {
+    font-size: 30px;
+    color: #555;
+}
+
+.social-icon:hover {
+    color: #fff;
+}

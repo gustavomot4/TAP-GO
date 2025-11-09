@@ -1,3 +1,13 @@
+function validarURL() {
+    var url = window.location.href;
+    if (url.includes('?cadastro')) {
+        container_cadastro_visivel.style.display = `block`;
+        container_login_visivel.style.display = `none`;
+    }
+}
+
+validarURL(); 
+
 function Alternar() {
     if (container_cadastro_visivel.style.display == `none`) {
         container_cadastro_visivel.style.display = `block`;
@@ -8,6 +18,10 @@ function Alternar() {
     }
 }
 
+
+function MudarPagina() {
+    window.location.href = "../index.html";
+}
 
 /*função de cadastro*/
 
@@ -124,7 +138,7 @@ function Login() {
                 sessionStorage.ID_USUARIO = json.idUsuario;
 
                 setTimeout(function () {
-                    window.location = "index.html";
+                    window.location = "tapgo.html";
                 }, 1000); // apenas para exibir o loading
 
             });

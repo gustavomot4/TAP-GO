@@ -8,13 +8,21 @@
     <link rel="stylesheet" href="./style/login.css">
     <script src="./js/sessao.js"></script>
     <link rel="shortcut icon" href="assets/TAPGO.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 
 </head>
 
 <body>
     <div class="conteudo">
+        <div class="container-btn-sair">
+            <button class="btn-sair" onclick="MudarPagina()">
+                <i class="fas fa-sign-out-alt"></i>
+                <span class="btn-sair-span">Sair</span>
+            </button>
+        </div>
 
-        <div class="container-login-visivel" id="container_login_visivel">
+        <div class="container-login-visivel" style="display: block" id="container_login_visivel">
             <div class="container-login" id="container_login">
                 <label>
                     <span>Informe o email:</span>
@@ -22,10 +30,10 @@
                 </label>
                 <label>
                     <span>Informe a senha:</span>
-                    <input id="ipt_senha_login" type="text" placeholder="Senha:">
+                    <input id="ipt_senha_login" type="password" placeholder="Senha:">
                 </label>
                 <div class="botao-link">
-                    <button onclick="Login()">
+                    <button onclick="Login()" class="btn-login-cadastrar">
                         <p>Entrar</p>
                     </button>
                     <span onclick="Alternar()" class="span-alternar">Ainda não tem conta?</span>
@@ -38,7 +46,7 @@
         </div>
 
 
-        <div class="container-cadastro-visivel" id="container_cadastro_visivel">
+        <div class="container-cadastro-visivel" style="display: none;" id="container_cadastro_visivel">
             <div class="container-cadastro" id="container_cadastro">
                 <label>
                     <span>Informe o seu nome:</span>
@@ -50,14 +58,14 @@
                 </label>
                 <label>
                     <span>Informe a senha:</span>
-                    <input id="ipt_senha_cadastro" type="text" placeholder="Senha:">
+                    <input id="ipt_senha_cadastro" type="password" placeholder="Senha:">
                 </label>
                 <label>
                     <span>Confirme a senha:</span>
-                    <input id="ipt_senha_confirmada" type="text" placeholder="Senha:">
+                    <input id="ipt_senha_confirmada" type="password" placeholder="Senha:">
                 </label>
                 <div class="botao-link">
-                    <button onclick="Cadastrar()">
+                    <button onclick="Cadastrar()" class="btn-login-cadastrar">
                         <p>Cadastrar</p>
                     </button>
                     <span onclick="Alternar()" class="span-alternar">Já tem conta?</span>
@@ -67,7 +75,7 @@
         </div>
 
         <div class="card_erro" id="cardErro">
-            <span id="mensagem_erro">Deu errom ae</span>
+            <span id="mensagem_erro"></span>
         </div>
 
     </div>

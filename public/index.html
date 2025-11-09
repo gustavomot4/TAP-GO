@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="./style/navbar.css">
     <script src="./js/index.js"></script>
     <link rel="shortcut icon" href="assets/TAPGO.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 
 </head>
 
@@ -21,19 +23,23 @@
         <div class="navbar-links">
             <a href="index.html">
                 <div class="navbar-link">Início</div>
-            <a href="sobreMim.html">
-                <div class="navbar-link">Sobre Mim</div>
-            </a>
+                <a href="sobreMim.html">
+                    <div class="navbar-link">Sobre Mim</div>
+                </a>
         </div>
 
         <div class="navbar-buttons">
-            <button onclick="MudarPagina()" id="btn_login" class="login">Login</button>
-            <button onclick="MudarPagina()" id="btn_cadastro" class="cadastrar">Cadastrar</button>
+            <button onclick="MudarPaginaLogin()" id="btn_login" class="login">Login</button>
+            <button onclick="MudarPaginaCadastro()" id="btn_cadastro" class="cadastrar">Cadastrar</button>
         </div>
 
     </div>
 
     <div class="container_hero">
+
+    </div>
+
+    <div class="container_jogo">
         <div class="hero_conteudo">
             <img src="./assets/TAPGO-GRANDE.png">
             <span>
@@ -43,10 +49,54 @@
                 Aqui, um toque muda tudo.</span>
             <button>Jogar</button>
         </div>
-        <div class="hero_img">
-            <img src="">
-        </div>
+
     </div>
+
+    <!-- Footer -->
+    <div class="footer_container">
+
+        <div class="atalhos_container">
+            <h4>Atalhos</h4> <br>
+            <a href="#">Home</a> <br>
+            <a href="#">História</a><br>
+            <a href="./sobreMim.html">Sobre Mim</a><br>
+            <a href="./login.html">TAP GO</a><br>
+        </div>
+
+        <div class="duvidas_container">
+            <h4>Dúvidas</h4> <br>
+
+            <a href="">Dúvidas Frequentes</a><br>
+            <a href="">Suporte ao Cliente</a><br>
+        </div>
+
+
+        <div class="contato_email_container">
+            <label>
+                <h4>Entre em contato pelo nosso Email</h4>
+                <input type="text" placeholder="nome@email.com">
+                <button>Enviar</button>
+            </label>
+        </div>
+
+    </div>
+
+    <div class="direitos_container">
+        <p>2025© Todos os direitos reservados</p>
+
+        <div class="politicas_container">
+            <p>Política de Privacidade</p>
+            <p>Termos e Condições</p>
+            <p>Política de Cookies</p>
+        </div>
+
+        <div class="rede_social_container">
+            <a href="https://www.linkedin.com/in/gustavoalvesmota/" target="_blank"> <i class="fab fa-linkedin social-icon"></i></a>
+            <a href="https://github.com/gustavomot4" target="_blank"> <i class="fab fa-github social-icon"></i></a>
+        </div>
+
+    </div>
+
 </body>
 
 </html>
