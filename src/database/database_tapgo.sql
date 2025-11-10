@@ -6,7 +6,8 @@ CREATE TABLE usuario(
 idUsuario INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(45),
 email VARCHAR(45) UNIQUE,
-senha VARCHAR(45)
+senha VARCHAR(45),
+nivel INT DEFAULT 1
 );
 
 SELECT * FROM usuario;

@@ -136,6 +136,7 @@ function Login() {
                 sessionStorage.EMAIL_USUARIO = json.email;
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.idUsuario;
+                sessionStorage.NIVEL_USUARIO = json.nivel;
 
                 setTimeout(function () {
                     window.location = "tapgo.html";

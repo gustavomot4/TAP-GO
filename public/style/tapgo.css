@@ -103,14 +103,17 @@ body {
     background-position: center;
 }
 
-.navbar {
+.navbar_visivel {
     width: 30%;
+    padding: 3% 1.5%;
+    margin-left: 5%;
     height: 100vh;
+}
+
+.navbar {
     display: flex;
     flex-direction: column;
-    padding: 3% 1.5%;
     gap: 30px;
-    margin-left: 5%;
     box-sizing: border-box;
 }
 
@@ -144,9 +147,9 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-end;
-    padding: 5% 5%;
-    height: 100vh;
     box-sizing: border-box;
+    height: 10vh;
+    padding: 10px 20px;
 }
 
 .info-usuario {
@@ -175,4 +178,74 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50px;
+}
+
+
+/* tela escolha de time */
+.tela-time{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+
+}
+
+.container-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.linha-time {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card-time {
+    background-color: var(--cor-fundo-secundario);
+    border-radius: 15px;
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+    width: 220px;
+    box-shadow: 0 4px 10px #161616;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.card-time:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.5);
+}
+
+.logo-time {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.card-time h2 {
+    color: #07f468;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.card-time p {
+    margin: 4px 0;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.time-titulo{
+    color: var(--cor-primaria);
+    font-weight: 500;
+    font-size: 2.0rem;
 }

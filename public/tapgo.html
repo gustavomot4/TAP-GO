@@ -20,50 +20,83 @@
                     <span class="btn-sair-span">Sair</span>
                 </button>
 
-                <video autoplay class="video-intro" id="videoIntro">
+                <video autoplay muted class="video-intro" id="videoIntro">
                     <source src="./assets/background/intro.mp4" type="video/mp4">
                 </video>
 
-                <button class="btn-jogar" id="btn_jogar" style="opacity: 0;" onclick="Jogar()">
-                    <span>Jogar</span>
+                <button class="btn-jogar" id="btn_jogar" style="opacity: 0;" onclick="Iniciar()">
+                    <span>Iniciar</span>
                 </button>
 
             </div>
         </div>
 
         <!-- tela menu -->
-        <div id="tela_menu_visivel" style="display: none;">
+        <div id="tela_menu_visivel">
+
+            <button class="btn-sair" id="btn_voltar" onclick="Voltar()" style="display: none;">
+                <i class="fas fa-arrow-left"></i>
+                <span class="btn-sair-span">Voltar</span>
+            </button>
+
             <div class="tela-menu">
-                <div class="navbar">
-                    <div class="nav-logo">
-                        <img src="./assets/TAPGO-GRANDE.png" alt="Logo TAPGO">
+
+                <!-- tela inicial ao fazer o login -->
+                <div class="navbar_visivel" id="navbar_visivel" style="display: none;">
+                    <div class="navbar">
+                        <div class="nav-logo">
+                            <img src="./assets/TAPGO-GRANDE.png" alt="Logo TAPGO">
+                        </div>
+
+                        <div class="nav-link">
+                            <p onclick="Jogar()">Jogar</p>
+                        </div>
+                        <div class="nav-link">
+                            <p>Últimas Partidas</p>
+                        </div>
+                        <div class="nav-link">
+                            <p>Ranking</p>
+                        </div>
+                        <div class="nav-link">
+                            <p>Como Jogar?</p>
+                        </div>
+                        <div class="nav-link">
+                            <p onclick="MudarPaginaLogin()">Sair</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- tela para escolher o time -->
+
+                <div class="tela-time-visivel" id="tela_time_visivel" style="display: none;">
+
+                    <div class="tela-time">
+                        <div class="container-time" id="container_time">
+                            <h2 class="time-titulo">Escolha seu time!</h2>
+                        </div>
                     </div>
 
-                    <div class="nav-link">
-                        <p>Jogar</p>
-                    </div>
-                    <div class="nav-link">
-                        <p>Últimas Partidas</p>
-                    </div>
-                    <div class="nav-link">
-                        <p>Ranking</p>
-                    </div>
-                    <div class="nav-link">
-                        <p>Como Jogar?</p>
-                    </div>
-                    <div class="nav-link">
-                        <p onclick="MudarPaginaLogin()">Sair</p>
-                    </div>
                 </div>
+
+
+                <!-- informação do usuario -->
                 <div class="conteudo-menu">
                     <div class="info-usuario">
-                        <div class="nome-usuario"><p id="nome_usuario"></p></div>
+                        <div class="nome-usuario">
+                            <p id="nome_usuario"></p>
+                        </div>
                         <div class="img-usuario"><img src="./assets/escudoMeninosDoMorro.png" alt=""></div>
-                        <div class="nivel-usuario"><p>Level 1</p></div>
+                        <div class="nivel-usuario">
+                            <p id="nivel_usuario">Level: </p>
+                        </div>
                     </div>
                 </div>
+
+
             </div>
         </div>
+
+
 
     </div>
 </body>
