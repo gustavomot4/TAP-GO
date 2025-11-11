@@ -139,7 +139,7 @@ function Login() {
                 sessionStorage.NIVEL_USUARIO = json.nivel;
 
                 setTimeout(function () {
-                    window.location = "tapgo.html";
+                    window.location = "intro.html";
                 }, 1000); // apenas para exibir o loading
 
             });

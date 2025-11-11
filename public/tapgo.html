@@ -11,38 +11,19 @@
 
 <body>
     <div class="tela-jogo">
-        <!-- tela inicial -->
-        <div id="tela_inicial_visivel" style="display: block;">
-            <div class="tela-inicial">
 
-                <button class="btn-sair" id="btn_sair" style="opacity: 0;" onclick="MudarPagina()">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span class="btn-sair-span">Sair</span>
-                </button>
 
-                <video autoplay muted class="video-intro" id="videoIntro">
-                    <source src="./assets/background/intro.mp4" type="video/mp4">
-                </video>
-
-                <button class="btn-jogar" id="btn_jogar" style="opacity: 0;" onclick="Iniciar()">
-                    <span>Iniciar</span>
-                </button>
-
-            </div>
-        </div>
-
-        <!-- tela menu -->
+        <button class="btn-sair" id="btn_voltar" onclick="Voltar()" style="display: block;">
+            <i class="fas fa-arrow-left"></i>
+            <span class="btn-sair-span">Voltar</span>
+        </button>
         <div id="tela_menu_visivel">
 
-            <button class="btn-sair" id="btn_voltar" onclick="Voltar()" style="display: none;">
-                <i class="fas fa-arrow-left"></i>
-                <span class="btn-sair-span">Voltar</span>
-            </button>
+            <!-- tela menu -->
 
             <div class="tela-menu">
 
-                <!-- tela inicial ao fazer o login -->
-                <div class="navbar_visivel" id="navbar_visivel" style="display: none;">
+                <div class="navbar_visivel" id="navbar_visivel" style="display: block;">
                     <div class="navbar">
                         <div class="nav-logo">
                             <img src="./assets/TAPGO-GRANDE.png" alt="Logo TAPGO">
@@ -96,6 +77,41 @@
             </div>
         </div>
 
+
+        <div id="tela_jogo_visivel" style="display: none;">
+
+
+
+            <div class="placar-canto">
+                <!-- Placar do usuário -->
+                <div class="time usuario" id="time_usuario">
+
+                    <div class="chutes">
+                        <span class="chute gol" id="chute_user_1"></span>
+                        <span class="chute gol" id="chute_user_2"></span>
+                        <span class="chute" id="chute_user_3"></span>
+                        <span class="chute" id="chute_user_4"></span>
+                        <span class="chute" id="chute_user_5"></span>
+                    </div>
+                </div>
+
+                <!-- Placar do adversário -->
+                <div class="time adversario">
+                    <div class="chutes">
+                        <img id="logo_time_adversario" src="./assets/escudoMeninosDoMorro.png" class="logo-time">
+
+                        <span class="chute gol" id="chute_adv_1"></span>
+                        <span class="chute erro" id="chute_adv_2"></span>
+                        <span class="chute" id="chute_adv_3"></span>
+                        <span class="chute" id="chute_adv_4"></span>
+                        <span class="chute" id="chute_adv_5"></span>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
 
 
     </div>

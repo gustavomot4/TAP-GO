@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAP GO</title>
+    <link rel="stylesheet" href="./style/tapgo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div id="tela_inicial_visivel">
+        <div class="tela-inicial">
+
+            <button class="btn-sair" id="btn_sair" style="opacity: 0;" onclick="MudarPagina()">
+                <i class="fas fa-sign-out-alt"></i>
+                <span class="btn-sair-span">Sair</span>
+            </button>
+
+            <video autoplay class="video-intro" id="videoIntro">
+                <source src="./assets/background/intro.mp4" type="video/mp4">
+            </video>
+
+            <button class="btn-jogar" id="btn_jogar" style="opacity: 0;" onclick="Iniciar()">
+                <span>Iniciar</span>
+            </button>
+
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    setTimeout(() => {
+        btn_jogar.style.opacity = '1'; btn_sair.style.opacity = '1';
+    }, 1000);
+
+    function Iniciar() {
+        window.location.href = "tapgo.html";
+    }
+    function MudarPagina() {
+        window.location.href = "../login.html";
+    }
+</script>

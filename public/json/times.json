@@ -1,47 +1,55 @@
 [
   {
+    "id": 1,
     "nome": "São Paulo FC",
     "local": "São Paulo, Brasil",
     "fundacao": 1930,
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Brasao_do_Sao_Paulo_Futebol_Clube.svg/250px-Brasao_do_Sao_Paulo_Futebol_Clube.svg.png"
   },
   {
+    "id": 2,
     "nome": "Corinthians",
     "local": "São Paulo, Brasil",
     "fundacao": 1910,
     "logo": "https://upload.wikimedia.org/wikipedia/pt/b/b4/Corinthians_simbolo.png"
   },
   {
+    "id": 3,
     "nome": "Palmeiras",
     "local": "São Paulo, Brasil",
     "fundacao": 1914,
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Palmeiras_logo.svg/250px-Palmeiras_logo.svg.png"
   },
   {
+    "id": 4,
     "nome": "Santos",
     "local": "Santos, Brasil",
     "fundacao": 1912,
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Santos_Logo.png/250px-Santos_Logo.png"
   },
   {
+    "id": 5,
     "nome": "Ponte Preta",
     "local": "Campinas, Brasil",
     "fundacao": 1900,
     "logo": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Escudo_Oficial_Ponte_Preta.png"
   },
   {
+    "id": 6,
     "nome": "Guarani",
     "local": "Campinas, Brasil",
     "fundacao": 1911,
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Guarani_FC_%28E%29_-_SP.svg/980px-Guarani_FC_%28E%29_-_SP.svg.png"
   },
   {
+    "id": 7,
     "nome": "Juventus da Mooca",
     "local": "São Paulo, Brasil",
     "fundacao": 1924,
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/CA_Juventus_logo.svg/1200px-CA_Juventus_logo.svg.png"
   },
   {
+    "id": 8,
     "nome": "Meninos do Morro",
     "local": "Cidade Tiradentes",
     "fundacao": 2018,
