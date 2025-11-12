@@ -73,42 +73,47 @@
                     </div>
                 </div>
 
-
             </div>
         </div>
 
 
         <div id="tela_jogo_visivel" style="display: none;">
 
-
-
             <div class="placar-canto">
                 <!-- Placar do usuário -->
                 <div class="time usuario" id="time_usuario">
-
-                    <div class="chutes">
-                        <span class="chute gol" id="chute_user_1"></span>
-                        <span class="chute gol" id="chute_user_2"></span>
-                        <span class="chute" id="chute_user_3"></span>
-                        <span class="chute" id="chute_user_4"></span>
-                        <span class="chute" id="chute_user_5"></span>
+                    <div class="chutes" id="div_chutes_usuario">
                     </div>
                 </div>
 
                 <!-- Placar do adversário -->
                 <div class="time adversario">
-                    <div class="chutes">
+                    <div class="chutes" id="div_chutes_adv">
                         <img id="logo_time_adversario" src="./assets/escudoMeninosDoMorro.png" class="logo-time">
-
-                        <span class="chute gol" id="chute_adv_1"></span>
-                        <span class="chute erro" id="chute_adv_2"></span>
-                        <span class="chute" id="chute_adv_3"></span>
-                        <span class="chute" id="chute_adv_4"></span>
-                        <span class="chute" id="chute_adv_5"></span>
-
-
                     </div>
                 </div>
+            </div>
+
+            <!-- chute -->
+            <div id="escolher_canto_chute_visivel" style="display: block;">
+                <div class="escolher-canto">
+                    <div class="canto" id="canto_esquerdo" onclick="Chute(this)"></div>
+                    <div class="canto" id="canto_meio" onclick="Chute(this)"></div>
+                    <div class="canto" id="canto_direito" onclick="Chute(this)"></div>
+                </div>
+            </div>
+
+            <!-- defesa -->
+            <div id="escolher_canto_defesa_visivel" style="display: none;">
+                <div class="escolher-canto">
+                    <div class="defesa" id="canto_esquerdo" onclick="Defesa(this)"></div>
+                    <div class="defesa" id="canto_meio" onclick="Defesa(this)"></div>
+                    <div class="defesa" id="canto_direito" onclick="Defesa(this)"></div>
+                </div>
+            </div>
+
+            <!-- resultado do chute ou defesa-->
+            <div id="resultado_visivel">
             </div>
 
         </div>

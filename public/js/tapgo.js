@@ -90,3 +90,190 @@ function Jogar() {
     window.location.href = "?escolhaTime";
 }
 
+
+var chutesUsuario = 0
+var golsUsuario = 0
+var defesasUsuario = 0
+
+var chutesAdversario = 0
+var defesasAdversario = 0
+var golsAdversario = 0
+var fezGol; 
+
+function Chute(elemento) {
+
+    var chute = elemento.id
+    var defesa = Math.floor(Math.random() * 3) + 1;
+
+
+    console.log('clicou em', chute)
+    console.log('goleiro foi em', defesa)
+
+    if (chute == 'canto_esquerdo') {
+        if (defesa == 1) {
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/esquerdaDefesa.png" class="resultado">`
+            defesasAdversario++
+            fezGol = 0
+        } else if (defesa == 2) {
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/esquerdaGoleiroMeio.png" class="resultado">`
+            golsUsuario++
+            fezGol = 1
+        } else {
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/esquerdaGoleiroDireita.png" class="resultado">`
+            golsUsuario++
+            fezGol = 1
+        }
+
+    } else if (chute == 'canto_meio') {
+
+        if (defesa == 1) {
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/meioGoleiroEsquerda.png" class="resultado">`
+            golsUsuario++
+            fezGOl = 1
+        } else if (defesa == 2) {
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/meioDefesa.png" class="resultado">`
+            defesasAdversario++
+            fezGol = 0
+        } else {
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/meioGoleiroDireita.png" class="resultado">`
+            golsUsuario++
+            fezGol = 1
+        }
+
+    } else {
+
+        if (defesa == 1) {
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/direitaGoleiroEsquerda.png" class="resultado">`
+            golsUsuario++
+            fezGol = 1
+        } else if (defesa == 2) {
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/direitaGoleiroMeio.png" class="resultado">`
+            golsUsuario++
+            fezGol = 1
+        } else {
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/direitaDefesa.png" class="resultado">`
+            defesasAdversario++
+            fezGol = 0
+        }
+
+    }
+
+    chutesUsuario++
+    
+
+
+    escolher_canto_chute_visivel.style.display = 'none'
+    resultado_visivel.style.display = 'block'
+    setTimeout(() => {
+        resultado_visivel.style.display = 'none'
+        escolher_canto_defesa_visivel.style.display = 'block'
+    }, 1500);
+
+    AtualizarPlacar();
+}
+
+
+
+function Defesa(elemento) {
+
+    var defesa = elemento.id
+    var chute = Math.floor(Math.random() * 3) + 1;
+
+
+    console.log('o chute foi em', chute)
+    console.log(' seu goleiro foi em', defesa)
+
+    if (defesa == 'canto_esquerdo') {
+        if (chute == 1) {
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/esquerdaDefesa.png" class="resultado">`
+            defesasUsuario++
+            fezGol = 0
+        } else if (chute == 2) {
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/meioGoleiroEsquerda.png" class="resultado">`
+            golsAdversario++
+            fezGol = 1
+        } else {
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/direitaGoleiroEsquerda.png" class="resultado">`
+            golsAdversario++
+            fezGol = 1
+        }
+
+    } else if (defesa == 'canto_meio') {
+
+        if (chute == 1) {
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/esquerdaGoleiroMeio.png" class="resultado">`
+            golsAdversario++
+            fezGol = 1
+        } else if (chute == 2) {
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/meioDefesa.png" class="resultado">`
+            defesasUsuario++
+            fezGol = 0
+        } else {
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/direitaGoleiroMeio.png" class="resultado">`
+            golsAdversario++
+            fezGol = 1
+        }
+
+    } else {
+
+        if (chute == 1) {
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/esquerdaGoleiroDireita.png" class="resultado">`
+            golsAdversario++
+            fezGol = 1
+        } else if (chute == 2) {
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/meioGoleiroDireita.png" class="resultado">`
+            golsAdversario++
+            fezGol = 1
+        } else {
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/direitaDefesa.png" class="resultado">`
+            defesasUsuario++
+            fezGol = 0
+        }
+
+    }
+
+    escolher_canto_defesa_visivel.style.display = 'none'
+    resultado_visivel.style.display = 'block'
+    setTimeout(() => {
+        resultado_visivel.style.display = 'none'
+        escolher_canto_chute_visivel.style.display = 'block'
+    }, 1500);
+
+    chutesAdversario++
+    AtualizarPlacar();
+
+}
+
+var contadorPlacarUser = 1
+var contadorPlacarAdv = 1
+function AtualizarPlacar() {
+
+
+    `chute_adv_${chutesAdversario}`;
+    `chute_user_${chutesUsuario}`;
+
+    for (; contadorPlacarUser <= chutesUsuario; contadorPlacarUser++) {
+        if (fezGol == 1) {
+            div_chutes_usuario.innerHTML += `
+            <span class="chute gol" id="chute_user_${chutesUsuario}"></span>
+            `
+        }else if (fezGol == 0){
+            div_chutes_usuario.innerHTML += `
+            <span class="chute erro" id="chute_user_${chutesUsuario}"></span>
+            `
+        }
+    }
+
+    for (; contadorPlacarAdv <= chutesAdversario; contadorPlacarAdv++) {
+        if (fezGol == 1) {
+            div_chutes_adv.innerHTML += `
+            <span class="chute gol" id="chute_user_${chutesAdversario}"></span>
+            `
+        }else if (fezGol == 0){
+            div_chutes_adv.innerHTML += `
+            <span class="chute erro" id="chute_user_${chutesAdversario}"></span>
+            `
+        }
+    }
+    
+}
