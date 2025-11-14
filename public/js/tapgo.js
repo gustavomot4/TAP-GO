@@ -8,34 +8,39 @@ var timesGlobais = [];
 
 // puxando os times e criando os card deles
 fetch('../json/times.json') // vai até onde esta o dados
-    .then(response => response.json()) // converte para objeto JS
-    .then(times => {
-
-        timesGlobais = times
-
-        console.log(times);
-        var cardTime = `<div class="linha-time">`;
-
-        // inserindo no html os times
-        for (var i = 0; i < times.length; i++) {
-            var time = times[i];
-
-            cardTime += `
-            <div class="card-time" onclick="EscolherTime(${i})">
-            <img src="${time.logo}" class="logo-time">
-            <h2>${time.nome}</h2>
-            <p>Local: ${time.local}</p>
-            <p>${time.fundacao}</p>
-            </div>
-            `;
-            if (i == 3) {
-                cardTime += `</div>
-                <div class="linha-time">`
-            }
+    .then(
+        function (response) {
+            return response.json();
         }
-        container_time.innerHTML = `${cardTime}</div>`;
-    })
-    .catch(error => console.error('Erro ao carregar JSON:', error));
+    ) // converte para objeto JS
+    .then(
+        function (times) {
+
+            timesGlobais = times
+            
+            console.log(times);
+            var cardTime = `<div class="linha-time">`;
+
+            // inserindo no html os times
+            for (var i = 0; i < times.length; i++) {
+                var time = times[i];
+
+                cardTime += `
+                <div class="card-time" onclick="EscolherTime(${i})">
+                <img src="${time.logo}" class="logo-time">
+                <h2>${time.nome}</h2>
+                <p>Local: ${time.local}</p>
+                <p>${time.fundacao}</p>
+                </div>
+                `;
+                if (i == 3) {
+                    cardTime += `</div>
+                    <div class="linha-time">`
+                }
+            }
+            container_time.innerHTML = `${cardTime}</div>`;
+
+        })
 
 function EscolherTime(i) {
     var timeEscolhido = timesGlobais[i];
@@ -45,10 +50,23 @@ function EscolherTime(i) {
     sessionStorage.LOGO_TIME = timeEscolhido.logo;
 
     window.location.href = '?jogo';
+
+    do {
+        var contadorAdversario = Math.floor(Math.random() * 7) + 1;
+    }
+    while (contadorAdversario == i)
+
+    adversario = timesGlobais[contadorAdversario]
+
+    sessionStorage.TIME_ADVERSARIO = adversario.id;
+    sessionStorage.NOME_ADVERSARIO = adversario.nome;
+    sessionStorage.LOGO_ADVERSARIO = adversario.logo;
+
 }
 
+// imprime os dados apos o fim do jogo
 time_usuario.innerHTML += `<img src="${sessionStorage.LOGO_TIME}" class="logo-time">`
-
+time_adversario.innerHTML += `<img src="${sessionStorage.LOGO_ADVERSARIO}" class="logo-time">`
 
 
 /* Para recarregar a pagina e não voltar para o inicio*/
@@ -73,6 +91,21 @@ function validarURL() {
     else if (url.includes('?jogo')) {
         tela_jogo_visivel.style.display = 'block';
         btn_voltar.style.display = 'block';
+    } else if (url.includes('?fimJogo')) {
+
+        fim_jogo_visivel.style.display = 'block'
+        btn_voltar.style.display = 'block';
+
+        logo_usuario_fim_jogo.innerHTML = `<img src="${sessionStorage.LOGO_TIME}" class="logo-time">`;
+        placar_usuario.innerHTML = sessionStorage.GOLS_USUARIO;
+        placar_adversario.innerHTML = sessionStorage.GOLS_ADVERSARIO;
+        logo_adversario_fim_jogo.innerHTML = `<img src="${sessionStorage.LOGO_ADVERSARIO}" class="logo-time">`;
+
+        if (sessionStorage.GOLS_USUARIO > sessionStorage.GOLS_ADVERSARIO) {
+            quem_venceu.innerHTML = `Você venceu`;
+        } else if (sessionStorage.GOLS_USUARIO < sessionStorage.GOLS_ADVERSARIO) {
+            quem_venceu.innerHTML = `Você perdeu`;
+        }
     }
 }
 
@@ -98,13 +131,12 @@ var defesasUsuario = 0
 var chutesAdversario = 0
 var defesasAdversario = 0
 var golsAdversario = 0
-var fezGol; 
+var fezGol;
 
 function Chute(elemento) {
 
     var chute = elemento.id
     var defesa = Math.floor(Math.random() * 3) + 1;
-
 
     console.log('clicou em', chute)
     console.log('goleiro foi em', defesa)
@@ -159,8 +191,6 @@ function Chute(elemento) {
     }
 
     chutesUsuario++
-    
-
 
     escolher_canto_chute_visivel.style.display = 'none'
     resultado_visivel.style.display = 'block'
@@ -170,8 +200,10 @@ function Chute(elemento) {
     }, 1500);
 
     AtualizarPlacar();
-}
 
+    sessionStorage.GOLS_USUARIO = golsUsuario;
+    sessionStorage.GOLS_ADVERSARIO = golsAdversario;
+}
 
 
 function Defesa(elemento) {
@@ -246,18 +278,17 @@ function Defesa(elemento) {
 
 var contadorPlacarUser = 1
 var contadorPlacarAdv = 1
+var vitoriaUsuario = 0
+var vitoriaAdversario = 0
+
 function AtualizarPlacar() {
-
-
-    `chute_adv_${chutesAdversario}`;
-    `chute_user_${chutesUsuario}`;
 
     for (; contadorPlacarUser <= chutesUsuario; contadorPlacarUser++) {
         if (fezGol == 1) {
             div_chutes_usuario.innerHTML += `
             <span class="chute gol" id="chute_user_${chutesUsuario}"></span>
             `
-        }else if (fezGol == 0){
+        } else if (fezGol == 0) {
             div_chutes_usuario.innerHTML += `
             <span class="chute erro" id="chute_user_${chutesUsuario}"></span>
             `
@@ -269,11 +300,65 @@ function AtualizarPlacar() {
             div_chutes_adv.innerHTML += `
             <span class="chute gol" id="chute_user_${chutesAdversario}"></span>
             `
-        }else if (fezGol == 0){
+        } else if (fezGol == 0) {
             div_chutes_adv.innerHTML += `
             <span class="chute erro" id="chute_user_${chutesAdversario}"></span>
             `
         }
     }
-    
+
+    var diferencaGolsUsuario = golsUsuario - golsAdversario;
+    var diferencaGolsAdversario = golsAdversario - golsUsuario;
+    var chuteRestantesAdversario = 5 - chutesAdversario;
+    var chuteRestantesUsuario = 5 - chutesUsuario;
+
+
+    if (
+        chutesAdversario <= 5 &&
+        chutesUsuario <= 5 &&
+        (diferencaGolsUsuario > chuteRestantesAdversario ||
+            diferencaGolsAdversario > chuteRestantesUsuario)) {
+        console.log('acabou');
+        if (golsUsuario > golsAdversario) {
+            console.log('voce venceu');
+            vitoriaUsuario = 1;
+        } else if (golsAdversario > golsUsuario) {
+            console.log('voce perdeu');
+            vitoriaAdversario = 1;
+        }
+    }
+
+    // alternadas
+
+    if (
+        chutesAdversario > 5 &&
+        chutesUsuario > 5 &&
+        chutesAdversario == chutesUsuario &&
+        (diferencaGolsUsuario == 1 || diferencaGolsAdversario == 1) &&
+        golsUsuario != golsAdversario) {
+
+        console.log('acabou nas alternadas');
+        if (golsUsuario > golsAdversario) {
+            console.log('voce venceu');
+            vitoriaUsuario = 1;
+        } else {
+            console.log('voce perdeu');
+            vitoriaAdversario = 1;
+        }
+    }
+
+    if (chutesAdversario % 5 == 0 && chutesUsuario % 5 == 0) {
+        div_chutes_usuario.innerHTML = ``
+        div_chutes_adv.innerHTML = ``
+    }
+
+    fimJogo()
+}
+
+function fimJogo() {
+    if (vitoriaUsuario == 1 || vitoriaAdversario == 1) {
+        setTimeout(() => {
+            window.location.href = "?fimJogo";
+        }, 1500);
+    }
 }

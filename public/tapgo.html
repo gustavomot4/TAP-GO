@@ -87,15 +87,15 @@
                 </div>
 
                 <!-- Placar do adversário -->
-                <div class="time adversario">
+                <div class="time adversario" id="time_adversario">
                     <div class="chutes" id="div_chutes_adv">
-                        <img id="logo_time_adversario" src="./assets/escudoMeninosDoMorro.png" class="logo-time">
                     </div>
                 </div>
             </div>
 
             <!-- chute -->
             <div id="escolher_canto_chute_visivel" style="display: block;">
+                <h2 class="tela-chute-titulo">Chute</h2>
                 <div class="escolher-canto">
                     <div class="canto" id="canto_esquerdo" onclick="Chute(this)"></div>
                     <div class="canto" id="canto_meio" onclick="Chute(this)"></div>
@@ -105,6 +105,7 @@
 
             <!-- defesa -->
             <div id="escolher_canto_defesa_visivel" style="display: none;">
+                <h2 class="tela-chute-titulo">Defenda</h2>
                 <div class="escolher-canto">
                     <div class="defesa" id="canto_esquerdo" onclick="Defesa(this)"></div>
                     <div class="defesa" id="canto_meio" onclick="Defesa(this)"></div>
@@ -116,6 +117,23 @@
             <div id="resultado_visivel">
             </div>
 
+        </div>
+
+
+        <!-- fim de jogo -->
+        <div id="fim_jogo_visivel" style="display: none;">
+            <div class="fim-jogo">
+                <div class="card-placar">
+                    <div id="quem_venceu"></div>
+                    <div class="placar-fim">
+                        <div id="logo_usuario_fim_jogo"></div>
+                        <div id="placar_usuario"></div>
+                        X
+                        <div id="placar_adversario"></div>
+                        <div id="logo_adversario_fim_jogo"></div>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
