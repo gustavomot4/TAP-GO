@@ -17,7 +17,7 @@ fetch('../json/times.json') // vai até onde esta o dados
         function (times) {
 
             timesGlobais = times
-            
+
             console.log(times);
             var cardTime = `<div class="linha-time">`;
 
@@ -133,9 +133,9 @@ var defesasAdversario = 0
 var golsAdversario = 0
 var fezGol;
 
-function Chute(elemento) {
+function Chute(div_canto) {
 
-    var chute = elemento.id
+    var chute = div_canto.id
     var defesa = Math.floor(Math.random() * 3) + 1;
 
     console.log('clicou em', chute)
@@ -199,18 +199,16 @@ function Chute(elemento) {
         escolher_canto_defesa_visivel.style.display = 'block'
     }, 1500);
 
-    AtualizarPlacar();
-
     sessionStorage.GOLS_USUARIO = golsUsuario;
-    sessionStorage.GOLS_ADVERSARIO = golsAdversario;
+    
+    AtualizarPlacar();
 }
 
 
-function Defesa(elemento) {
+function Defesa(div_canto) {
 
-    var defesa = elemento.id
+    var defesa = div_canto.id
     var chute = Math.floor(Math.random() * 3) + 1;
-
 
     console.log('o chute foi em', chute)
     console.log(' seu goleiro foi em', defesa)
@@ -272,8 +270,9 @@ function Defesa(elemento) {
     }, 1500);
 
     chutesAdversario++
-    AtualizarPlacar();
+    sessionStorage.GOLS_ADVERSARIO = golsAdversario;
 
+    AtualizarPlacar();
 }
 
 var contadorPlacarUser = 1
@@ -329,7 +328,6 @@ function AtualizarPlacar() {
     }
 
     // alternadas
-
     if (
         chutesAdversario > 5 &&
         chutesUsuario > 5 &&
@@ -357,8 +355,68 @@ function AtualizarPlacar() {
 
 function fimJogo() {
     if (vitoriaUsuario == 1 || vitoriaAdversario == 1) {
+        CadastrarPartida()
+
         setTimeout(() => {
             window.location.href = "?fimJogo";
         }, 1500);
     }
+}
+
+function CadastrarPartida() {
+
+
+    var fkUsuarioVar = sessionStorage.ID_USUARIO;
+    var fkAdversarioVar = sessionStorage.TIME_ADVERSARIO;
+    var timeUsuarioVar = sessionStorage.NOME_TIME;
+    var golsUsuarioVar = golsUsuario;
+    var golsAdversarioVar = golsAdversario;
+    var chutesUsuarioVar = chutesUsuario;
+    var chutesAdversarioVar = chutesAdversario;
+
+
+    // Verificando se há algum campo em branco
+    if (
+        fkUsuarioVar == "" ||
+        fkAdversarioVar == "" ||
+        timeUsuarioVar == "" ||
+        golsUsuarioVar == "" ||
+        golsAdversarioVar == "" ||
+        chutesUsuarioVar == "" ||
+        chutesAdversarioVar == ""
+    ) {
+        console.log('Campos vazios')
+    }
+
+    // Enviando o valor da nova input
+    fetch("/partida/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            fkUsuarioServer: fkUsuarioVar,
+            fkAdversarioServer: fkAdversarioVar,
+            timeUsuarioServer: timeUsuarioVar,
+            golsUsuarioServer: golsUsuarioVar,
+            golsAdversarioServer: golsAdversarioVar,
+            chutesUsuarioServer: chutesUsuarioVar,
+            chutesAdversarioServer: chutesAdversarioVar,
+        }),
+    })
+        .then(function (resposta) {
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                console.log('cadastro completo')
+            } else {
+                throw "Houve um erro ao tentar realizar o cadastro!";
+            }
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+    return false;
 }
