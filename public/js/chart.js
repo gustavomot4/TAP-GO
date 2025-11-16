@@ -1,52 +1,54 @@
-// Gráfico de Barras 
-const ctxBarra = document.getElementById('myChartBarra');
+// Gráfico de chutes 
+const ctxChute = document.getElementById('myChartChute');
 
-new Chart(ctxBarra, {
+new Chart(ctxChute, {
     type: 'bar',
     data: {
         labels: [
-            '01/10', '02/10', '03/10', '04/10', '05/10', '06/10', '07/10',
-            '08/10', '09/10', '10/10', '11/10', '12/10', '13/10', '14/10'
+
+            'Esquerda', 'Meio', 'Direita'
         ],
         datasets: [
             {
-                label: 'Camara Fria 1',
-                data: [11, 1, 2, 1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
-                backgroundColor: '#12be8b', /*cor dado do grafico*/
-                borderColor: '#12be8b', /*cor da borda*/
-                borderWidth: 1, /*tamanho da largura da borda*/
-                borderRadius: 6 /*Arredonda a borda*/
+                label: 'Total Chutes',
+                data: [7, 4, 3,],
+                backgroundColor: 'rgba(7, 244, 104, 0.3)',
+                borderColor: '#07f468',
+                borderWidth: 2,
+                borderRadius: 6
             },
             {
-                label: 'Camara Fria 2',
-                data: [3, 0, 0, 2, 0, 1, 0, 1, 0, 2, 0, 0, 0, 2],
-                backgroundColor: '#6C63FF', /*cor dado do grafico*/
-                borderColor: '#6C63FF', /*cor da borda*/
-                borderWidth: 1, /*tamanho da largura da borda*/
-                borderRadius: 6 /*Arredonda a borda*/
+                label: 'Total Gols',
+                data: [3, 2, 3],
+                backgroundColor: 'rgba(255, 255, 255, 0.3)', 
+                borderColor: '#ffffffff',                  
+                borderWidth: 2,
+                borderRadius: 6
             }
+
+
 
 
         ]
     },
     options: {
         responsive: true,/*deixa o grafico responsivo*/
-        maintainAspectRatio: false,/*O grafico se ajusta ao tamanho do container,
+        maintainAspectRatio: true,/*O grafico se ajusta ao tamanho do container,
                  entretanto o grafico pode acabar se esticando ou comprimindo
-                 ja se o valor for tru isso não acontece*/
+                 ja se o valor for true isso não acontece*/
         plugins: {
             legend: {
                 position: 'bottom', /*A posição da legenda fica abaixo do grafico*/
                 labels: {
-                    color: '#333', /*cor da legenda*/
-                    font: { /*Estilização da font*/
+                    color: '#ffffffff', /*cor da legenda*/
+                    font: { 
                         size: 13, /*Tamanho da font*/
                         weight: 'bold'/*Formato negrito*/
                     }
                 }
             },
             tooltip: /*Caixinha das legendas estilização delas*/{
-                backgroundColor: '#6C63FF',
+                backgroundColor: 'rgba(85, 85, 85)',
                 titleColor: '#fff',
                 bodyColor: '#fff',
                 borderWidth: 2,
@@ -55,57 +57,84 @@ new Chart(ctxBarra, {
         },
         scales: {
             x: {
-                ticks: { color: '#555' },
-                grid: { color: 'rgba(0, 0, 0, 0.03)' }/*cores das linhas da grade do eixo x*/
+                ticks: { color: '#fff' },
+                grid: { color: 'rgba(85, 85, 85, 0.5)' }/*cores das linhas da grade do eixo x*/
             },
             y: {
                 beginAtZero: true,/*começa do zero o eixo y*/
-                ticks: { color: '#555' },
-                grid: { color: 'rgba(0, 0, 0, 0.5)' }/*cores das linhas da grades do eixo y*/
+                ticks: { color: '#fff' },
+                grid: { color: 'rgba(85, 85, 85, 0.2)' }/*cores das linhas da grades do eixo y*/
             }
         }
     }
 });
 
-// Gráfico de Pizza 
-const ctxPie = document.getElementById('myChartPie');
+const ctxDefesa = document.getElementById('myChartDefesa');
 
-new Chart(ctxPie, {
-    type: 'pie',
+// Gráfico de defesas 
+new Chart(ctxDefesa, {
+    type: 'bar',
     data: {
-        labels: ['Câmara Fria 1', 'Câmara Fria 2'],
+        labels: [
+
+            'Esquerda', 'Meio', 'Direita'
+        ],
         datasets: [
             {
-                label: 'Total de Sensores',
-                data: [4, 4],
-                backgroundColor: [
-                    '#6C63FF',
-                    '#12be8b'
-                ],
-                borderColor: '#fff',
-                borderWidth: 3
+                label: 'Total de pulos',
+                data: [7, 4, 3,],
+                backgroundColor: 'rgba(7, 244, 104, 0.3)',
+                borderColor: '#07f468',
+                borderWidth: 2,
+                borderRadius: 6
+            },
+            {
+                label: 'Total de defesas',
+                data: [3, 2, 3],
+                backgroundColor: 'rgba(255, 255, 255, 0.3)',  
+                borderColor: '#ffffffff',                      
+                borderWidth: 2,
+                borderRadius: 6
             }
+
+
+
+
         ]
     },
     options: {
-        responsive: true,
-        maintainAspectRatio: false,
+        responsive: true,/*deixa o grafico responsivo*/
+        maintainAspectRatio: true,/*O grafico se ajusta ao tamanho do container,
+                 entretanto o grafico pode acabar se esticando ou comprimindo
+                 ja se o valor for true isso não acontece*/
         plugins: {
             legend: {
-                position: 'right',
+                position: 'bottom', /*A posição da legenda fica abaixo do grafico*/
                 labels: {
-                    color: '#333',
-                    font: {
-                        size: 13,
-                        weight: 'bold'
+                    color: '#ffffffff', /*cor da legenda*/
+                    font: { 
+                        size: 13, /*Tamanho da font*/
+                        weight: 'bold'/*Formato negrito*/
                     }
                 }
             },
-            tooltip: {
-                backgroundColor: '#6C63FF',
+            tooltip: /*Caixinha das legendas estilização delas*/{
+                backgroundColor: 'rgba(85, 85, 85)',
                 titleColor: '#fff',
                 bodyColor: '#fff',
-                padding: 10
+                borderWidth: 2,
+                padding: 15
+            }
+        },
+        scales: {
+            x: {
+                ticks: { color: '#fff' },
+                grid: { color: 'rgba(85, 85, 85, 0.5)' }/*cores das linhas da grade do eixo x*/
+            },
+            y: {
+                beginAtZero: true,/*começa do zero o eixo y*/
+                ticks: { color: '#fff' },
+                grid: { color: 'rgba(85, 85, 85, 0.2)' }/*cores das linhas da grades do eixo y*/
             }
         }
     }

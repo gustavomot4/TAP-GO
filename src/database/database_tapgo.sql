@@ -17,22 +17,34 @@ timeAdversario VARCHAR(45)
 
 
 CREATE TABLE partida(
-idPartida INT AUTO_INCREMENT, 
+idPartida INT, 
 fkUsuario INT,
 fkAdversario INT,
 timeUsuario VARCHAR(45),
-golsUsuario INT,
-golsAdversario INT,
-chutesUsuario INT,
-chutesAdversario INT,
 PRIMARY KEY (idPartida, fkUsuario, fkAdversario),
 CONSTRAINT fkUsuarioPartida FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
 CONSTRAINT fkAdversarioPartida FOREIGN KEY (fkAdversario) REFERENCES adversario(idAdversario)
 );
 
+CREATE TABLE chute(
+    idChute INT AUTO_INCREMENT PRIMARY KEY,
+    fkPartida INT,
+    fkUsuario INT,
+    fkAdversario INT,
+    posicaoChute VARCHAR(10),
+    resultadoChute VARCHAR(10),
+    CONSTRAINT fkPartidaChute FOREIGN KEY (fkPartida) REFERENCES partida(idPartida),
+    CONSTRAINT fkUsuarioChute FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
+    CONSTRAINT fkAdversarioChute FOREIGN KEY (fkAdversario) REFERENCES adversario(idAdversario),
+    CONSTRAINT chk_posicao CHECK (posicaoChute IN ('esquerda','meio','direita')),
+    CONSTRAINT chk_resultado CHECK (resultadoChute IN ('gol','defesa'))
+);
+
+
 SELECT * FROM usuario;
 SELECT * FROM adversario;
 SELECT * FROM partida;
+SELECT * FROM chute;
 
 INSERT INTO adversario (timeAdversario) values
 ('São Paulo'),
@@ -45,18 +57,8 @@ INSERT INTO adversario (timeAdversario) values
 ('Meninos do Morro');
 
 
-CREATE VIEW vw_resultadoPartida AS
-SELECT p.idPartida,
-		u.nome AS 'Nome Usuario', 
-        concat('Usuario: ', p.timeUsuario, ' ', p.golsUsuario , ' X '   , p.golsAdversario , ' Adversario: ' , a.timeAdversario) AS Partida,
-        CASE
-        WHEN p.golsUsuario > p.golsAdversario
-        THEN concat(p.timeUsuario , ' Venceu')
-        ELSE concat(a.timeAdversario , ' Venceu')
-        END AS Resultado
-        FROM partida AS p
-        JOIN usuario AS u ON u.idUsuario = p.fkUsuario
-        JOIN adversario AS a ON a.idAdversario = p.fkAdversario;
-        
-        
-SELECT * FROM vw_resultadoPartida; 
+SELECT idPartida FROM partida 
+WHERE fkUsuario = 1
+ORDER BY idPartida DESC
+LIMIT 1;
+

@@ -161,22 +161,76 @@ body {
 }
 
 .container-grafico-barra {
+    width: 47%;
+    height: 100%;
+    border-radius: 8px;
+    background-color: var(--cor-fundo-secundario);
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.card-grafico {
     width: 60%;
-    height: 100%;
-    border-radius: 8px;
-    background-color: var(--cor-fundo-secundario);
+    height: 60%;
     position: relative;
-
+    left: 30px;
+    top: 20px;
 }
 
-.container-grafico-pizza {
-    width: 33%;
-    height: 100%;
-    border-radius: 8px;
-    background-color: var(--cor-fundo-secundario);
-    position: relative;
 
+.container-percentual {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
+
+.card-percentual {
+    width: 80%;
+    height: 27%;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: rgb(22, 22, 22, 0.1);
+    border: 2px solid rgb(22, 22, 22, 0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.icone-lado {
+    font-size: 1.8em;
+    color: #07f468;
+}
+
+.info-lado {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 20px;
+}
+
+.texto-lado {
+    font-size: 1.2em;
+}
+
+.percentual {
+    font-size: 1.5em;
+    margin-top: 5px;
+}
+
+.legenda {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 2px;
+}
+
+
 
 .container-ultimos-jogos {
     width: 100%;
@@ -209,6 +263,7 @@ body {
 
 .icone-grafico {
     font-size: 25px;
+    color: var(--cor-primaria);
 }
 
 .card-jogo {
@@ -253,12 +308,4 @@ body {
     justify-content: space-around;
     align-items: center;
     font-size: 1.4rem;
-}
-
-.card-grafico-menor {
-    width: 100%;
-    height: 220px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }

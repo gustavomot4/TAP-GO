@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./style/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
+
 </head>
 
 <body>
@@ -57,20 +57,72 @@
             </div>
 
             <div class="container-grafico">
-                <div class="container-grafico-barra grafico">
+                <div class="container-grafico-barra">
                     <div class="titulo-grafico">
-                        <i class="fas fa-clock-rotate-left icone-grafico"></i> Gráficos de barras
+                        <i class="fas fa-futbol icone-grafico"></i> Desempenho de Chutes
                     </div>
-                    <div class="card-grafico-menor">
-                        <canvas class="grafico-barra" id="myChartBarra"></canvas>
+                    <div class="card-grafico">
+                        <canvas class="grafico-barra" id="myChartChute"></canvas>
+                    </div>
+                    <div class="container-percentual">
+                        <div class="card-percentual">
+                            <i class="fas fa-arrow-left icone-lado"></i>
+                            <div class="info-lado">
+                                <span class="texto-lado">Esquerda</span>
+                                <span class="percentual">42%</span>
+                                <span class="legenda">Taxa de conversão</span>
+                            </div>
+                        </div>
+                        <div class="card-percentual">
+                            <i class="fas fa-minus icone-lado"></i>
+                            <div class="info-lado">
+                                <span class="texto-lado">Meio</span>
+                                <span class="percentual">18%</span>
+                                <span class="legenda">Taxa de conversão</span>
+                            </div>
+                        </div>
+                        <div class="card-percentual">
+                            <i class="fas fa-arrow-right icone-lado"></i>
+                            <div class="info-lado">
+                                <span class="texto-lado">Direita</span>
+                                <span class="percentual">40%</span>
+                                <span class="legenda">Taxa de conversão</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="container-grafico-pizza grafico">
+                <div class="container-grafico-barra">
                     <div class="titulo-grafico">
-                        <i class="fas fa-clock-rotate-left icone-grafico"></i> Gráficos de pizza
+                        <i class="fas fa-hand-paper icone-grafico"></i> Desempenho de Defesas
                     </div>
-                    <div class="card-grafico-menor">
-                        <canvas class="grafico-pie" id="myChartPie"></canvas>
+                    <div class="card-grafico">
+                        <canvas class="grafico-pie" id="myChartDefesa"></canvas>
+                    </div>
+                    <div class="container-percentual">
+                        <div class="card-percentual">
+                            <i class="fas fa-arrow-left icone-lado"></i>
+                            <div class="info-lado">
+                                <span class="texto-lado">Esquerda</span>
+                                <span class="percentual">42%</span>
+                                <span class="legenda">Taxa de conversão</span>
+                            </div>
+                        </div>
+                        <div class="card-percentual">
+                            <i class="fas fa-minus icone-lado"></i>
+                            <div class="info-lado">
+                                <span class="texto-lado">Meio</span>
+                                <span class="percentual">18%</span>
+                                <span class="legenda">Taxa de conversão</span>
+                            </div>
+                        </div>
+                        <div class="card-percentual">
+                            <i class="fas fa-arrow-right icone-lado"></i>
+                            <div class="info-lado">
+                                <span class="texto-lado">Direita</span>
+                                <span class="percentual">40%</span>
+                                <span class="legenda">Taxa de conversão</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -17,6 +17,7 @@ var app = express();
 
 var usuarioRouter = require("./src/routes/usuarios");
 var partidaRouter = require("./src/routes/partida");
+var chuteRouter = require("./src/routes/chute");
 
 
 app.use(express.json());
@@ -27,6 +28,7 @@ app.use(cors());
 
 app.use("/usuarios", usuarioRouter);
 app.use("/partida", partidaRouter);
+app.use("/chute", chuteRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`

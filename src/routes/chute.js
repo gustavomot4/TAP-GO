@@ -1,16 +1,11 @@
 var express = require("express");
 var router = express.Router();
 
-var partidaController = require("../controllers/partidaController");
-
-router.get("/ultimas/:idUsuario", function (req, res) {
-    partidaController.buscarUltimoIDPartida(req, res);
-});
-
+var chuteController = require("../controllers/chuteController");
 
 //Recebendo os dados do html e direcionando para a função cadastrar de usuarioController.js
 router.post("/cadastrar", function (req, res) {
-    partidaController.cadastrar(req, res);
+    chuteController.cadastrar(req, res);
 })
 
 module.exports = router;

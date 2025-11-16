@@ -2,6 +2,27 @@
 nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 nivel_usuario.innerHTML += sessionStorage.NIVEL_USUARIO;
 
+var idUsuario = sessionStorage.ID_USUARIO;
+
+function buscarUltimoIDPartida() {
+
+
+    fetch(`/partida/ultimas/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                sessionStorage.ID_ULTIMA_PARTIDA = resposta[0].idPartida
+                console.log(resposta)
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados ${error.message}`);
+        });
+}
+
 
 
 var timesGlobais = [];
@@ -87,6 +108,8 @@ function validarURL() {
         tela_menu_visivel.style.display = 'block';
         tela_time_visivel.style.display = 'block';
         btn_voltar.style.display = 'block';
+        buscarUltimoIDPartida();
+
     }
     else if (url.includes('?jogo')) {
         tela_jogo_visivel.style.display = 'block';
@@ -133,6 +156,9 @@ var defesasAdversario = 0
 var golsAdversario = 0
 var fezGol;
 
+var posicaoChute = []
+var resultadoChute = []
+
 function Chute(div_canto) {
 
     var chute = div_canto.id
@@ -146,15 +172,22 @@ function Chute(div_canto) {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/esquerdaDefesa.png" class="resultado">`
             defesasAdversario++
             fezGol = 0
+            resultadoChute.push('defesa')
+
         } else if (defesa == 2) {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/esquerdaGoleiroMeio.png" class="resultado">`
             golsUsuario++
             fezGol = 1
+            resultadoChute.push('gol')
+
         } else {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/esquerdaGoleiroDireita.png" class="resultado">`
             golsUsuario++
             fezGol = 1
+            resultadoChute.push('gol')
+
         }
+        posicaoChute.push('esquerda')
 
     } else if (chute == 'canto_meio') {
 
@@ -162,15 +195,23 @@ function Chute(div_canto) {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/meioGoleiroEsquerda.png" class="resultado">`
             golsUsuario++
             fezGOl = 1
+            resultadoChute.push('gol')
+
         } else if (defesa == 2) {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/meioDefesa.png" class="resultado">`
             defesasAdversario++
             fezGol = 0
+            resultadoChute.push('defesa')
+
         } else {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/meioGoleiroDireita.png" class="resultado">`
             golsUsuario++
             fezGol = 1
+            resultadoChute.push('gol')
+
         }
+
+        posicaoChute.push('meio')
 
     } else {
 
@@ -178,15 +219,20 @@ function Chute(div_canto) {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/direitaGoleiroEsquerda.png" class="resultado">`
             golsUsuario++
             fezGol = 1
+            resultadoChute.push('gol')
         } else if (defesa == 2) {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/direitaGoleiroMeio.png" class="resultado">`
             golsUsuario++
             fezGol = 1
+            resultadoChute.push('gol')
         } else {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/direitaDefesa.png" class="resultado">`
             defesasAdversario++
             fezGol = 0
+            resultadoChute.push('defesa')
         }
+
+        posicaoChute.push('direita')
 
     }
 
@@ -200,7 +246,7 @@ function Chute(div_canto) {
     }, 1500);
 
     sessionStorage.GOLS_USUARIO = golsUsuario;
-    
+
     AtualizarPlacar();
 }
 
@@ -218,14 +264,20 @@ function Defesa(div_canto) {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/esquerdaDefesa.png" class="resultado">`
             defesasUsuario++
             fezGol = 0
+            posicaoChute.push('esquerda')
+            resultadoChute.push('defesa')
         } else if (chute == 2) {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/meioGoleiroEsquerda.png" class="resultado">`
             golsAdversario++
             fezGol = 1
+            posicaoChute.push('meio')
+            resultadoChute.push('gol')
         } else {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/direitaGoleiroEsquerda.png" class="resultado">`
             golsAdversario++
             fezGol = 1
+            posicaoChute.push('direita')
+            resultadoChute.push('gol')
         }
 
     } else if (defesa == 'canto_meio') {
@@ -234,14 +286,23 @@ function Defesa(div_canto) {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/esquerdaGoleiroMeio.png" class="resultado">`
             golsAdversario++
             fezGol = 1
+            posicaoChute.push('esquerda')
+            resultadoChute.push('gol')
+
         } else if (chute == 2) {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/meioDefesa.png" class="resultado">`
             defesasUsuario++
             fezGol = 0
+            posicaoChute.push('meio')
+            resultadoChute.push('defesa')
+
         } else {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/direitaGoleiroMeio.png" class="resultado">`
             golsAdversario++
             fezGol = 1
+            posicaoChute.push('direita')
+            resultadoChute.push('gol')
+
         }
 
     } else {
@@ -250,14 +311,20 @@ function Defesa(div_canto) {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/esquerdaGoleiroDireita.png" class="resultado">`
             golsAdversario++
             fezGol = 1
+            posicaoChute.push('esquerda')
+            resultadoChute.push('gol')
         } else if (chute == 2) {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/meioGoleiroDireita.png" class="resultado">`
             golsAdversario++
             fezGol = 1
+            posicaoChute.push('meio')
+            resultadoChute.push('gol')
         } else {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/direitaDefesa.png" class="resultado">`
             defesasUsuario++
             fezGol = 0
+            posicaoChute.push('direita')
+            resultadoChute.push('defesa')
         }
 
     }
@@ -356,37 +423,19 @@ function AtualizarPlacar() {
 function fimJogo() {
     if (vitoriaUsuario == 1 || vitoriaAdversario == 1) {
         CadastrarPartida()
-
-        setTimeout(() => {
-            window.location.href = "?fimJogo";
-        }, 1500);
     }
 }
 
 function CadastrarPartida() {
-
+    if (sessionStorage.ID_ULTIMA_PARTIDA == undefined) {
+        var idUltimaPartidaVar = sessionStorage.ID_ULTIMA_PARTIDA = 1
+    } else {
+        var idUltimaPartidaVar = Number(sessionStorage.ID_ULTIMA_PARTIDA) + 1;
+    }
 
     var fkUsuarioVar = sessionStorage.ID_USUARIO;
     var fkAdversarioVar = sessionStorage.TIME_ADVERSARIO;
     var timeUsuarioVar = sessionStorage.NOME_TIME;
-    var golsUsuarioVar = golsUsuario;
-    var golsAdversarioVar = golsAdversario;
-    var chutesUsuarioVar = chutesUsuario;
-    var chutesAdversarioVar = chutesAdversario;
-
-
-    // Verificando se há algum campo em branco
-    if (
-        fkUsuarioVar == "" ||
-        fkAdversarioVar == "" ||
-        timeUsuarioVar == "" ||
-        golsUsuarioVar == "" ||
-        golsAdversarioVar == "" ||
-        chutesUsuarioVar == "" ||
-        chutesAdversarioVar == ""
-    ) {
-        console.log('Campos vazios')
-    }
 
     // Enviando o valor da nova input
     fetch("/partida/cadastrar", {
@@ -396,13 +445,59 @@ function CadastrarPartida() {
         },
         body: JSON.stringify({
             // crie um atributo que recebe o valor recuperado aqui
+            idPartidaServer: idUltimaPartidaVar,
             fkUsuarioServer: fkUsuarioVar,
             fkAdversarioServer: fkAdversarioVar,
             timeUsuarioServer: timeUsuarioVar,
-            golsUsuarioServer: golsUsuarioVar,
-            golsAdversarioServer: golsAdversarioVar,
-            chutesUsuarioServer: chutesUsuarioVar,
-            chutesAdversarioServer: chutesAdversarioVar,
+        }),
+    })
+        .then(function (resposta) {
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                console.log('cadastro completo')
+                for (var i = 0; i <= posicaoChute.length - 1; i++) {
+                    CadastrarChute(i)
+                }
+            } else {
+                throw "Houve um erro ao tentar realizar o cadastro!";
+            }
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+    return false;
+
+}
+
+function CadastrarChute(i) {
+    if (i % 2 == 0) {
+        var fkUsuarioVar = null;
+        var fkAdversarioVar = sessionStorage.TIME_ADVERSARIO;
+
+    } else {
+        var fkUsuarioVar = sessionStorage.ID_USUARIO;
+        var fkAdversarioVar = null;
+    }
+
+    var fkPartidaVar = sessionStorage.ID_ULTIMA_PARTIDA;
+    var posicaoChuteVar = posicaoChute[i];
+    var resultadoChuteVar = resultadoChute[i];
+
+    // Enviando o valor da nova input
+    fetch("/chute/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            fkPartidaServer: fkPartidaVar,
+            fkUsuarioServer: fkUsuarioVar,
+            fkAdversarioServer: fkAdversarioVar,
+            posicaoChuteServer: posicaoChuteVar,
+            resultadoChuteServer: resultadoChuteVar,
         }),
     })
         .then(function (resposta) {
@@ -418,5 +513,12 @@ function CadastrarPartida() {
             console.log(`#ERRO: ${resposta}`);
         });
 
+    setTimeout(() => {
+        window.location.href = "?fimJogo";
+    }, 1500);
+
     return false;
+
+
 }
+
