@@ -4,42 +4,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Minha carreira</title>
     <link rel="stylesheet" href="./style/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
 </head>
 
 <body>
+    <div class="container">
+        <div class="navbar">
+            <div class="nav-logo">
+                <a href="#">
+                    <img src="./assets/TAPGO-GRANDE.png">
+                </a>
+            </div>
 
-    <div class="navbar">
-        <div class="nav-logo">
-            <a href="#">
-                <img src="./assets/TAPGO-GRANDE.png">
-            </a>
-        </div>
-
-        <div class="nav-links">
-
-            <button class="btn-jogar">
-                <span>Jogar</span>
-            </button>
-
-            <a href="">Ultimos Jogos</a>
+            <div class="nav-links">
+                <!-- <a href="">Ultimos Jogos</a>
             <a href="">Ranking</a>
-            <a href="">Como Jogar?</a>
+            <a href="">Como Jogar?</a> -->
+            </div>
+
+            <div class="nav-footer">
+                <a href="../tapgo.html">
+                    <button class="btn-sair">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </button>
+                </a>
+            </div>
+
         </div>
+        <div class="conteudo-dashboard">
+            <div class="container-kpi">
+                <div class="card-kpi">
+                    <p>Total de vitórias:</p>
+                    <h3 id="dado-kpi">30</h3>
+                </div>
+                <div class="card-kpi">
+                    <p>Total de derrotas:</p>
+                    <h3 id="dado-kpi">30</h3>
+                </div>
+                <div class="card-kpi">
+                    <p>Time favorito:</p>
+                    <h3 id="dado-kpi">30</h3>
+                </div>
+                <div class="card-kpi">
+                    <p>Maior Rival:</p>
+                    <h3 id="dado-kpi">30</h3>
+                </div>
+            </div>
 
+            <div class="container-grafico">
+                <div class="container-grafico-barra grafico">
+                    <div class="titulo-grafico">
+                        <i class="fas fa-clock-rotate-left icone-grafico"></i> Gráficos de barras
+                    </div>
+                    <div class="card-grafico-menor">
+                        <canvas class="grafico-barra" id="myChartBarra"></canvas>
+                    </div>
+                </div>
+                <div class="container-grafico-pizza grafico">
+                    <div class="titulo-grafico">
+                        <i class="fas fa-clock-rotate-left icone-grafico"></i> Gráficos de pizza
+                    </div>
+                    <div class="card-grafico-menor">
+                        <canvas class="grafico-pie" id="myChartPie"></canvas>
+                    </div>
+                </div>
+            </div>
 
-        <div class="nav-footer">
-            <a href="../login.html">
-                <button class="btn-sair">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Sair</span>
-                </button>
-            </a>
+            <div class="container-ultimos-jogos">
+                <div class="container-jogo">
+                    <div class="titulo-grafico">
+                        <i class="fas fa-clock-rotate-left icone-grafico"></i> Últimas 5 partidas
+                    </div>
+                    <div class="card-jogo">
+                        <div class="resultado venceu">
+                            <p>Vitória</p>
+                        </div>
+                        <div class="placar-time">
+                            <div class="logo-usuario">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Brasao_do_Sao_Paulo_Futebol_Clube.svg/250px-Brasao_do_Sao_Paulo_Futebol_Clube.svg.png"
+                                    class="logo-time">
+                            </div>
+                            <div class="placar-usuario">5</div>
+                            x
+                            <div class="placar-adversario">3</div>
+                            <div class="logo-adversario">
+                                <img src="https://upload.wikimedia.org/wikipedia/pt/b/b4/Corinthians_simbolo.png"
+                                    class="logo-time">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="barra-separadora"></div>
+                    <div class="card-jogo">
+                        <div class="resultado perdeu">
+                            <p>Derrota</p>
+                        </div>
+                        <div class="placar-time">
+                            <div class="logo-usuario">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Brasao_do_Sao_Paulo_Futebol_Clube.svg/250px-Brasao_do_Sao_Paulo_Futebol_Clube.svg.png"
+                                    class="logo-time">
+                            </div>
+                            <div class="placar-usuario">2</div>
+                            x
+                            <div class="placar-adversario">4</div>
+                            <div class="logo-adversario">
+                                <img src="https://upload.wikimedia.org/wikipedia/pt/b/b4/Corinthians_simbolo.png"
+                                    class="logo-time">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="barra-separadora"></div>
+                    <div class="card-jogo"></div>
+                    <div class="barra-separadora"></div>
+                    <div class="card-jogo"></div>
+                    <div class="barra-separadora"></div>
+                    <div class="card-jogo "></div>
+                </div>
+            </div>
         </div>
     </div>
-
 </body>
 
 </html>
+<script src="./js/dashboard.js"></script>
+<script src="./js/chart.js"></script>

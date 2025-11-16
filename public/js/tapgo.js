@@ -104,7 +104,7 @@ function validarURL() {
         if (sessionStorage.GOLS_USUARIO > sessionStorage.GOLS_ADVERSARIO) {
             quem_venceu.innerHTML = `Você venceu`;
         } else if (sessionStorage.GOLS_USUARIO < sessionStorage.GOLS_ADVERSARIO) {
-            quem_venceu.innerHTML = `Você perdeu`;
+            quem_venceu.innerHTML = `<span style="color:#ff2e2e ">Você perdeu</span>`;
         }
     }
 }

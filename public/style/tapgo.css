@@ -134,6 +134,7 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     margin: 0;
+    color: #fff;
 }
 
 .nav-link p:hover {
@@ -257,7 +258,6 @@ body {
     background-size: cover;
     background-position: center;
 }
-
 
 
 .placar-canto {
