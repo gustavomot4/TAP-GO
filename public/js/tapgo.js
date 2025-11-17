@@ -5,8 +5,6 @@ nivel_usuario.innerHTML += sessionStorage.NIVEL_USUARIO;
 var idUsuario = sessionStorage.ID_USUARIO;
 
 function buscarUltimoIDPartida() {
-
-
     fetch(`/partida/ultimas/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
             response.json().then(function (resposta) {
@@ -22,8 +20,6 @@ function buscarUltimoIDPartida() {
             console.error(`Erro na obtenção dos dados ${error.message}`);
         });
 }
-
-
 
 var timesGlobais = [];
 
@@ -428,11 +424,12 @@ function fimJogo() {
 
 function CadastrarPartida() {
     if (sessionStorage.ID_ULTIMA_PARTIDA == undefined) {
-        var idUltimaPartidaVar = sessionStorage.ID_ULTIMA_PARTIDA = 1
+        sessionStorage.ID_ULTIMA_PARTIDA = 1;
     } else {
-        var idUltimaPartidaVar = Number(sessionStorage.ID_ULTIMA_PARTIDA) + 1;
+        sessionStorage.ID_ULTIMA_PARTIDA = Number(sessionStorage.ID_ULTIMA_PARTIDA) + 1;
     }
 
+    var idUltimaPartidaVar = Number(sessionStorage.ID_ULTIMA_PARTIDA);
     var fkUsuarioVar = sessionStorage.ID_USUARIO;
     var fkAdversarioVar = sessionStorage.TIME_ADVERSARIO;
     var timeUsuarioVar = sessionStorage.NOME_TIME;
@@ -473,12 +470,12 @@ function CadastrarPartida() {
 
 function CadastrarChute(i) {
     if (i % 2 == 0) {
-        var fkUsuarioVar = null;
-        var fkAdversarioVar = sessionStorage.TIME_ADVERSARIO;
-
-    } else {
         var fkUsuarioVar = sessionStorage.ID_USUARIO;
         var fkAdversarioVar = null;
+
+    } else {
+        var fkUsuarioVar = null;
+        var fkAdversarioVar = sessionStorage.TIME_ADVERSARIO;
     }
 
     var fkPartidaVar = sessionStorage.ID_ULTIMA_PARTIDA;
