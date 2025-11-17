@@ -12,14 +12,52 @@ function buscarUltimoIDPartida(idUsuario) {
 }
 
 
-// Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
-function cadastrar(idPartida, fkUsuario, fkAdversario, timeUsuario) {
+function cadastrar(
+    idPartida,
+    fkUsuario,
+    fkAdversario,
+    timeUsuario,
+    chutesUsuarioEsquerda,
+    chutesUsuarioMeio,
+    chutesUsuarioDireita,
+    golsUsuarioEsquerda,
+    golsUsuarioMeio,
+    golsUsuarioDireita,
+    chutesAdversarioEsquerda,
+    chutesAdversarioMeio,
+    chutesAdversarioDireita,
+    golsAdversarioEsquerda,
+    golsAdversarioMeio,
+    golsAdversarioDireita
+) {
 
-    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
-    //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO partida (idPartida ,fkUsuario, fkAdversario, timeUsuario) VALUES ('${idPartida}','${fkUsuario}', '${fkAdversario}', '${timeUsuario}');
+        INSERT INTO partida (
+            idPartida, fkUsuario, fkAdversario, timeUsuario,
+            chutesUsuarioEsquerda, chutesUsuarioMeio, chutesUsuarioDireita,
+            golsUsuarioEsquerda, golsUsuarioMeio, golsUsuarioDireita,
+            chutesAdversarioEsquerda, chutesAdversarioMeio, chutesAdversarioDireita,
+            golsAdversarioEsquerda, golsAdversarioMeio, golsAdversarioDireita
+        ) VALUES (
+            ${idPartida}, 
+            ${fkUsuario}, 
+            ${fkAdversario}, 
+            '${timeUsuario}',
+            ${chutesUsuarioEsquerda},
+            ${chutesUsuarioMeio},
+            ${chutesUsuarioDireita},
+            ${golsUsuarioEsquerda},
+            ${golsUsuarioMeio},
+            ${golsUsuarioDireita},
+            ${chutesAdversarioEsquerda},
+            ${chutesAdversarioMeio},
+            ${chutesAdversarioDireita},
+            ${golsAdversarioEsquerda},
+            ${golsAdversarioMeio},
+            ${golsAdversarioDireita}
+        );
     `;
+
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }

@@ -152,8 +152,23 @@ var defesasAdversario = 0
 var golsAdversario = 0
 var fezGol;
 
-var posicaoChute = []
-var resultadoChute = []
+
+var chutesUsuarioEsquerda = 0
+var chutesUsuarioMeio = 0
+var chutesUsuarioDireita = 0
+
+var golsUsuarioEsquerda = 0
+var golsUsuarioMeio = 0
+var golsUsuarioDireita = 0
+
+
+var chutesAdversarioEsquerda = 0
+var chutesAdversarioMeio = 0
+var chutesAdversarioDireita = 0
+
+var golsAdversarioEsquerda = 0
+var golsAdversarioMeio = 0
+var golsAdversarioDireita = 0
 
 function Chute(div_canto) {
 
@@ -167,68 +182,70 @@ function Chute(div_canto) {
         if (defesa == 1) {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/esquerdaDefesa.png" class="resultado">`
             defesasAdversario++
+            chutesUsuarioEsquerda++
             fezGol = 0
-            resultadoChute.push('defesa')
 
         } else if (defesa == 2) {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/esquerdaGoleiroMeio.png" class="resultado">`
             golsUsuario++
+            chutesUsuarioEsquerda++
+            golsUsuarioEsquerda++
             fezGol = 1
-            resultadoChute.push('gol')
 
         } else {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/esquerdaGoleiroDireita.png" class="resultado">`
             golsUsuario++
+            chutesUsuarioEsquerda++
+            golsUsuarioEsquerda++
             fezGol = 1
-            resultadoChute.push('gol')
 
         }
-        posicaoChute.push('esquerda')
 
     } else if (chute == 'canto_meio') {
 
         if (defesa == 1) {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/meioGoleiroEsquerda.png" class="resultado">`
             golsUsuario++
+            chutesUsuarioMeio++
+            golsUsuarioMeio++
             fezGOl = 1
-            resultadoChute.push('gol')
 
         } else if (defesa == 2) {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/meioDefesa.png" class="resultado">`
             defesasAdversario++
+            chutesUsuarioMeio++
             fezGol = 0
-            resultadoChute.push('defesa')
 
         } else {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/meioGoleiroDireita.png" class="resultado">`
             golsUsuario++
+            chutesUsuarioMeio++
+            golsUsuarioMeio++
             fezGol = 1
-            resultadoChute.push('gol')
-
         }
 
-        posicaoChute.push('meio')
 
     } else {
 
         if (defesa == 1) {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/direitaGoleiroEsquerda.png" class="resultado">`
             golsUsuario++
+            chutesUsuarioDireita++
+            golsUsuarioDireita++
             fezGol = 1
-            resultadoChute.push('gol')
         } else if (defesa == 2) {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/direitaGoleiroMeio.png" class="resultado">`
             golsUsuario++
+            chutesUsuarioDireita++
+            golsUsuarioDireita++
             fezGol = 1
-            resultadoChute.push('gol')
         } else {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/direitaDefesa.png" class="resultado">`
             defesasAdversario++
+            chutesUsuarioDireita++
             fezGol = 0
-            resultadoChute.push('defesa')
         }
 
-        posicaoChute.push('direita')
 
     }
 
@@ -259,21 +276,20 @@ function Defesa(div_canto) {
         if (chute == 1) {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/esquerdaDefesa.png" class="resultado">`
             defesasUsuario++
+            chutesAdversarioEsquerda++
             fezGol = 0
-            posicaoChute.push('esquerda')
-            resultadoChute.push('defesa')
         } else if (chute == 2) {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/meioGoleiroEsquerda.png" class="resultado">`
             golsAdversario++
+            chutesAdversarioMeio++
+            golsAdversarioMeio++
             fezGol = 1
-            posicaoChute.push('meio')
-            resultadoChute.push('gol')
         } else {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/direitaGoleiroEsquerda.png" class="resultado">`
             golsAdversario++
+            chutesAdversarioDireita++
+            golsAdversarioDireita++
             fezGol = 1
-            posicaoChute.push('direita')
-            resultadoChute.push('gol')
         }
 
     } else if (defesa == 'canto_meio') {
@@ -281,23 +297,22 @@ function Defesa(div_canto) {
         if (chute == 1) {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/esquerdaGoleiroMeio.png" class="resultado">`
             golsAdversario++
+            chutesAdversarioEsquerda++
+            golsAdversarioEsquerda++
             fezGol = 1
-            posicaoChute.push('esquerda')
-            resultadoChute.push('gol')
 
         } else if (chute == 2) {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/meioDefesa.png" class="resultado">`
             defesasUsuario++
+            chutesAdversarioMeio++
             fezGol = 0
-            posicaoChute.push('meio')
-            resultadoChute.push('defesa')
 
         } else {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/direitaGoleiroMeio.png" class="resultado">`
             golsAdversario++
+            chutesAdversarioDireita++
+            golsAdversarioDireita++
             fezGol = 1
-            posicaoChute.push('direita')
-            resultadoChute.push('gol')
 
         }
 
@@ -306,21 +321,20 @@ function Defesa(div_canto) {
         if (chute == 1) {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/esquerdaGoleiroDireita.png" class="resultado">`
             golsAdversario++
+            chutesAdversarioEsquerda++
+            golsAdversarioEsquerda++
             fezGol = 1
-            posicaoChute.push('esquerda')
-            resultadoChute.push('gol')
         } else if (chute == 2) {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/meioGoleiroDireita.png" class="resultado">`
             golsAdversario++
+            chutesAdversarioMeio++
+            golsAdversarioMeio++
             fezGol = 1
-            posicaoChute.push('meio')
-            resultadoChute.push('gol')
         } else {
             resultado_visivel.innerHTML = `<img src="../assets/penalty/direitaDefesa.png" class="resultado">`
             defesasUsuario++
+            chutesAdversarioDireita++
             fezGol = 0
-            posicaoChute.push('direita')
-            resultadoChute.push('defesa')
         }
 
     }
@@ -434,6 +448,23 @@ function CadastrarPartida() {
     var fkAdversarioVar = sessionStorage.TIME_ADVERSARIO;
     var timeUsuarioVar = sessionStorage.NOME_TIME;
 
+    var chutesUsuarioEsquerdaVar = chutesUsuarioEsquerda;
+    var chutesUsuarioMeioVar = chutesUsuarioMeio;
+    var chutesUsuarioDireitaVar = chutesUsuarioDireita;
+
+    var golsUsuarioEsquerdaVar = golsUsuarioEsquerda;
+    var golsUsuarioMeioVar = golsUsuarioMeio;
+    var golsUsuarioDireitaVar = golsUsuarioDireita;
+
+
+    var chutesAdversarioEsquerdaVar = chutesAdversarioEsquerda;
+    var chutesAdversarioMeioVar = chutesAdversarioMeio;
+    var chutesAdversarioDireitaVar = chutesAdversarioDireita;
+
+    var golsAdversarioEsquerdaVar = golsAdversarioEsquerda;
+    var golsAdversarioMeioVar = golsAdversarioMeio;
+    var golsAdversarioDireitaVar = golsAdversarioDireita;
+
     // Enviando o valor da nova input
     fetch("/partida/cadastrar", {
         method: "POST",
@@ -446,6 +477,22 @@ function CadastrarPartida() {
             fkUsuarioServer: fkUsuarioVar,
             fkAdversarioServer: fkAdversarioVar,
             timeUsuarioServer: timeUsuarioVar,
+
+            chutesUsuarioEsquerdaServer: chutesUsuarioEsquerdaVar,
+            chutesUsuarioMeioServer: chutesUsuarioMeioVar,
+            chutesUsuarioDireitaServer: chutesUsuarioDireitaVar,
+
+            golsUsuarioEsquerdaServer: golsUsuarioEsquerdaVar,
+            golsUsuarioMeioServer: golsUsuarioMeioVar,
+            golsUsuarioDireitaServer: golsUsuarioDireitaVar,
+
+            chutesAdversarioEsquerdaServer: chutesAdversarioEsquerdaVar,
+            chutesAdversarioMeioServer: chutesAdversarioMeioVar,
+            chutesAdversarioDireitaServer: chutesAdversarioDireitaVar,
+
+            golsAdversarioEsquerdaServer: golsAdversarioEsquerdaVar,
+            golsAdversarioMeioServer: golsAdversarioMeioVar,
+            golsAdversarioDireitaServer: golsAdversarioDireitaVar,
         }),
     })
         .then(function (resposta) {
@@ -453,9 +500,10 @@ function CadastrarPartida() {
 
             if (resposta.ok) {
                 console.log('cadastro completo')
-                for (var i = 0; i <= posicaoChute.length - 1; i++) {
-                    CadastrarChute(i)
-                }
+                setTimeout(() => {
+                    window.location.href = "?fimJogo";
+                }, 1500);
+
             } else {
                 throw "Houve um erro ao tentar realizar o cadastro!";
             }
@@ -467,55 +515,3 @@ function CadastrarPartida() {
     return false;
 
 }
-
-function CadastrarChute(i) {
-    if (i % 2 == 0) {
-        var fkUsuarioVar = sessionStorage.ID_USUARIO;
-        var fkAdversarioVar = null;
-
-    } else {
-        var fkUsuarioVar = null;
-        var fkAdversarioVar = sessionStorage.TIME_ADVERSARIO;
-    }
-
-    var fkPartidaVar = sessionStorage.ID_ULTIMA_PARTIDA;
-    var posicaoChuteVar = posicaoChute[i];
-    var resultadoChuteVar = resultadoChute[i];
-
-    // Enviando o valor da nova input
-    fetch("/chute/cadastrar", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            // crie um atributo que recebe o valor recuperado aqui
-            fkPartidaServer: fkPartidaVar,
-            fkUsuarioServer: fkUsuarioVar,
-            fkAdversarioServer: fkAdversarioVar,
-            posicaoChuteServer: posicaoChuteVar,
-            resultadoChuteServer: resultadoChuteVar,
-        }),
-    })
-        .then(function (resposta) {
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                console.log('cadastro completo')
-            } else {
-                throw "Houve um erro ao tentar realizar o cadastro!";
-            }
-        })
-        .catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
-
-    setTimeout(() => {
-        window.location.href = "?fimJogo";
-    }, 1500);
-
-    return false;
-
-
-}
-
