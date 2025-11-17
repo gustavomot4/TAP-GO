@@ -10,6 +10,7 @@ senha VARCHAR(45),
 nivel INT DEFAULT 1
 );
 
+SELECT * FROM usuario;
 CREATE TABLE adversario(
 idAdversario INT PRIMARY KEY AUTO_INCREMENT,
 timeAdversario VARCHAR(45)
@@ -17,34 +18,33 @@ timeAdversario VARCHAR(45)
 
 
 CREATE TABLE partida(
-idPartida INT, 
+idPartida INT AUTO_INCREMENT, 
 fkUsuario INT,
 fkAdversario INT,
 timeUsuario VARCHAR(45),
+
+chutesUsuarioEsquerda INT,
+chutesUsuarioMeio INT,
+chutesUsuarioDireita INT,
+golsUsuarioEsquerda INT,
+golsUsuarioMeio INT,
+golsUsuarioDireita INT,
+
+chutesAdversarioEsquerda INT,
+chutesAdversarioMeio INT,
+chutesAdversarioDireita INT,
+golsAdversarioEsquerda INT,
+golsAdversarioMeio INT,
+golsAdversarioDireita INT,
+
 PRIMARY KEY (idPartida, fkUsuario, fkAdversario),
 CONSTRAINT fkUsuarioPartida FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
 CONSTRAINT fkAdversarioPartida FOREIGN KEY (fkAdversario) REFERENCES adversario(idAdversario)
 );
 
-CREATE TABLE chute(
-    idChute INT AUTO_INCREMENT PRIMARY KEY,
-    fkPartida INT,
-    fkUsuario INT,
-    fkAdversario INT,
-    posicaoChute VARCHAR(10),
-    resultadoChute VARCHAR(10),
-    CONSTRAINT fkPartidaChute FOREIGN KEY (fkPartida) REFERENCES partida(idPartida),
-    CONSTRAINT fkUsuarioChute FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
-    CONSTRAINT fkAdversarioChute FOREIGN KEY (fkAdversario) REFERENCES adversario(idAdversario),
-    CONSTRAINT chk_posicao CHECK (posicaoChute IN ('esquerda','meio','direita')),
-    CONSTRAINT chk_resultado CHECK (resultadoChute IN ('gol','defesa'))
-);
-
-
 SELECT * FROM usuario;
 SELECT * FROM adversario;
 SELECT * FROM partida;
-SELECT * FROM chute;
 
 INSERT INTO adversario (timeAdversario) values
 ('São Paulo'),
@@ -57,8 +57,38 @@ INSERT INTO adversario (timeAdversario) values
 ('Meninos do Morro');
 
 
-SELECT idPartida FROM partida 
-WHERE fkUsuario = 1
-ORDER BY idPartida DESC
-LIMIT 1;
+CREATE VIEW vw_resultadoPartida AS
+
+SELECT 
+    p.idPartida,
+    u.nome AS nomeUsuario,
+    p.timeUsuario,
+    a.timeAdversario,
+    
+    SUM(p.chutesUsuarioEsquerda + p.chutesUsuarioMeio + p.chutesUsuarioDireita) AS totalChutesUsuario,
+    SUM(p.golsUsuarioEsquerda + p.golsUsuarioMeio + p.golsUsuarioDireita) AS totalGolsUsuario,
+    SUM(p.chutesAdversarioEsquerda + p.chutesAdversarioMeio + p.chutesAdversarioDireita) AS totalChutesAdversario,
+    SUM(p.golsAdversarioEsquerda + p.golsAdversarioMeio + p.golsAdversarioDireita) AS totalGolsAdversario,
+
+    CASE
+        WHEN SUM(p.golsUsuarioEsquerda + p.golsUsuarioMeio + p.golsUsuarioDireita) >
+             SUM(p.golsAdversarioEsquerda + p.golsAdversarioMeio + p.golsAdversarioDireita)
+            THEN 'Usuário Venceu'
+        WHEN SUM(p.golsUsuarioEsquerda + p.golsUsuarioMeio + p.golsUsuarioDireita) <
+             SUM(p.golsAdversarioEsquerda + p.golsAdversarioMeio + p.golsAdversarioDireita)
+            THEN 'Adversário Venceu'
+        ELSE 'Empate'
+    END AS resultado
+    
+FROM partida p
+JOIN usuario u ON u.idUsuario = p.fkUsuario
+JOIN adversario a ON a.idAdversario = p.fkAdversario
+
+GROUP BY
+    p.idPartida,
+    u.nome,
+    p.timeUsuario,
+    a.timeAdversario;
+    
+SELECT * FROM vw_resultadoPartida; 
 
