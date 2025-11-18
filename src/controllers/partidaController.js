@@ -16,6 +16,25 @@ function buscarUltimoIDPartida(req, res) {
     });
 }
 
+
+function buscarUltimo5Jogos(req, res) {
+    var idUsuario = req.params.idUsuario;
+
+    partidaModel.buscarUltimo5Jogos(idUsuario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os ultimos 5 jogos.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+
+
 function cadastrar(req, res) {
     console.log("BODY RECEBIDO:", req.body);
 
@@ -93,5 +112,6 @@ function cadastrar(req, res) {
 
 module.exports = {
     buscarUltimoIDPartida,
+    buscarUltimo5Jogos,
     cadastrar
 };

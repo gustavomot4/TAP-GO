@@ -26,9 +26,6 @@ new Chart(ctxChute, {
                 borderRadius: 6
             }
 
-
-
-
         ]
     },
     options: {
