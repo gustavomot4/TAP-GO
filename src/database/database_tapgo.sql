@@ -57,38 +57,57 @@ INSERT INTO adversario (timeAdversario) values
 ('Meninos do Morro');
 
 
-CREATE VIEW vw_resultadoPartida AS
 
+-- buscar os ultimos 5 dados das partidas
+CREATE VIEW vw_ultimos_5_dados_partidas_do_usuario AS 
+SELECT p.idPartida, p.timeUsuario, a.timeAdversario, p.golsUsuarioEsquerda , p.golsUsuarioMeio , p.golsUsuarioDireita,
+		p.golsAdversarioEsquerda, p.golsAdversarioMeio , golsAdversarioDireita
+	FROM partida AS p
+	JOIN adversario AS a ON a.idAdversario = p.fkAdversario
+	WHERE fkUsuario = 1
+	ORDER BY idPartida DESC
+	LIMIT 5;
+    
+    
+-- puxar todos os dados de todas partidas do usuarios
+CREATE VIEW vw_todos_dados_partidas_do_usuario AS
+SELECT p.idPartida, p.timeUsuario, a.timeAdversario, p.golsUsuarioEsquerda , p.golsUsuarioMeio , p.golsUsuarioDireita,
+		p.golsAdversarioEsquerda, p.golsAdversarioMeio , golsAdversarioDireita
+	FROM partida AS p
+	JOIN adversario AS a ON a.idAdversario = p.fkAdversario
+	WHERE fkUsuario = 1;
+    
+    
+-- time mais utilizado
+CREATE VIEW vw_time_mais_utilizado_usuario AS
 SELECT 
-    p.idPartida,
-    u.nome AS nomeUsuario,
     p.timeUsuario,
+    COUNT(*) AS vezes
+FROM partida AS p
+WHERE p.fkUsuario = 1
+GROUP BY p.timeUsuario
+ORDER BY vezes DESC
+LIMIT 1;
+
+
+-- adversario mais enfrentado
+CREATE VIEW vw_time_mais_enfretado AS
+SELECT 
     a.timeAdversario,
-    
-    SUM(p.chutesUsuarioEsquerda + p.chutesUsuarioMeio + p.chutesUsuarioDireita) AS totalChutesUsuario,
-    SUM(p.golsUsuarioEsquerda + p.golsUsuarioMeio + p.golsUsuarioDireita) AS totalGolsUsuario,
-    SUM(p.chutesAdversarioEsquerda + p.chutesAdversarioMeio + p.chutesAdversarioDireita) AS totalChutesAdversario,
-    SUM(p.golsAdversarioEsquerda + p.golsAdversarioMeio + p.golsAdversarioDireita) AS totalGolsAdversario,
+    COUNT(*) AS vezes
+FROM partida AS p
+JOIN adversario AS a ON a.idAdversario = p.fkAdversario
+WHERE p.fkUsuario = 1
+GROUP BY a.timeAdversario
+ORDER BY vezes DESC
+LIMIT 1;
 
-    CASE
-        WHEN SUM(p.golsUsuarioEsquerda + p.golsUsuarioMeio + p.golsUsuarioDireita) >
-             SUM(p.golsAdversarioEsquerda + p.golsAdversarioMeio + p.golsAdversarioDireita)
-            THEN 'Usuário Venceu'
-        WHEN SUM(p.golsUsuarioEsquerda + p.golsUsuarioMeio + p.golsUsuarioDireita) <
-             SUM(p.golsAdversarioEsquerda + p.golsAdversarioMeio + p.golsAdversarioDireita)
-            THEN 'Adversário Venceu'
-        ELSE 'Empate'
-    END AS resultado
-    
-FROM partida p
-JOIN usuario u ON u.idUsuario = p.fkUsuario
-JOIN adversario a ON a.idAdversario = p.fkAdversario
+SELECT * FROM vw_ultimos_5_dados_partidas_do_usuario;
 
-GROUP BY
-    p.idPartida,
-    u.nome,
-    p.timeUsuario,
-    a.timeAdversario;
-    
-SELECT * FROM vw_resultadoPartida; 
+SELECT * FROM  vw_todos_dados_partidas_do_usuario;
 
+SELECT * FROM vw_todos_dados_partidas_do_usuario;
+
+SELECT * FROM vw_time_mais_utilizado_usuario;
+
+SELECT * FROM vw_time_mais_enfretado;

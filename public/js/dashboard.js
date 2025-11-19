@@ -1,15 +1,11 @@
 var idUsuario = sessionStorage.ID_USUARIO;
 
-
-
 function buscarUltimo5Jogos() {
     fetch(`/partida/ultimosJogos/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
             response.json().then(function (resposta) {
 
-
-
-                for (var i = 0; i <= resposta.length; i++) {
+                for (var i = 0; i < resposta.length; i++) {
                     var golsUsuario = resposta[i].golsUsuarioEsquerda + resposta[i].golsUsuarioMeio + resposta[i].golsUsuarioDireita
                     var golsAdversario = resposta[i].golsAdversarioEsquerda + resposta[i].golsAdversarioMeio + resposta[i].golsAdversarioDireita
 
@@ -38,7 +34,6 @@ function buscarUltimo5Jogos() {
 
                     } else if (resposta[i].timeUsuario == 'Meninos do Morro') {
                         imgTimeUsuario = `../assets/escudoMeninosDoMorro.png`
-
                     }
 
 
@@ -70,9 +65,9 @@ function buscarUltimo5Jogos() {
                     }
 
                     var resultadoJogo = ``
-                    if(golsUsuario > golsAdversario){
+                    if (golsUsuario > golsAdversario) {
                         resultadoJogo = `<p class="venceu">Vitória</p>`
-                    }else{
+                    } else {
                         resultadoJogo = `<p class="perdeu">Derrota</p>`
                     }
 
@@ -110,3 +105,38 @@ function buscarUltimo5Jogos() {
 buscarUltimo5Jogos();
 
 
+function buscarTimeFavorito() {
+    fetch(`/partida/timeFavorito/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                
+                time_favorito.innerHTML = resposta[0].timeUsuario;
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados ${error.message}`);
+        });
+}
+
+buscarTimeFavorito()
+
+function buscarAdversarioMaisEnfrentado() {
+    fetch(`/partida/AdversarioMaisEnfrentado/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+
+                time_rival.innerHTML = resposta[0].timeAdversario;
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados ${error.message}`);
+        });
+}
+
+buscarAdversarioMaisEnfrentado()

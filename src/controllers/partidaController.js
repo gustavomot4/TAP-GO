@@ -34,6 +34,55 @@ function buscarUltimo5Jogos(req, res) {
 }
 
 
+function buscarTodosJogos(req, res) {
+    var idUsuario = req.params.idUsuario;
+
+    partidaModel.buscarTodosJogos(idUsuario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os jogos.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function buscarTimeFavorito(req, res) {
+    var idUsuario = req.params.idUsuario;
+
+    partidaModel.buscarTimeFavorito(idUsuario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os jogos.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function buscarAdversarioMaisEnfrentado(req, res) {
+    var idUsuario = req.params.idUsuario;
+
+    partidaModel.buscarAdversarioMaisEnfrentado(idUsuario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os jogos.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+
 
 function cadastrar(req, res) {
     console.log("BODY RECEBIDO:", req.body);
@@ -113,5 +162,8 @@ function cadastrar(req, res) {
 module.exports = {
     buscarUltimoIDPartida,
     buscarUltimo5Jogos,
+    buscarTodosJogos,
+    buscarTimeFavorito,
+    buscarAdversarioMaisEnfrentado,
     cadastrar
 };
