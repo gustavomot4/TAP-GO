@@ -7,6 +7,14 @@
   font-style: normal;
 }
 
+:root {
+    --cor-primaria: #07f468;
+    --cor-secundaria: #ffffff;
+    --cor-fundo-principal: #161616;
+    --cor-fundo-secundario: #252525;
+    --cor-fundo-terciario: #000;
+}
+
 body {
   display: flex;
   justify-content: space-evenly;
@@ -72,6 +80,7 @@ span {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  position: relative;
 }
 
 .container-cadastro-visivel {
@@ -189,3 +198,24 @@ span {
 #nome_span, #email_span, #senha_span , #confirmar_senha_span{
   color:#ff2e2e;
 }
+
+
+.card-resultado{
+  width: 25%;
+  height: 200px;
+  background-color: var(--cor-fundo-secundario);
+  position: absolute;
+  border-radius: 8px;
+  border-left: var(--cor-primaria) 3px solid;
+  top: 10px;
+  left: 74%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-resultado span{
+  color: #fff;
+  font-size: 1.6rem;
+}
+

@@ -12,15 +12,24 @@ function validarSessao() {
     }
 }
 
-function limparSessao() {
+function MudarPaginaCadastro() {
+    window.location.href = "./login.html?cadastro";
+}
+function MudarPaginaLogin() {
     sessionStorage.clear();
-    window.location = "../login.html";
+    window.location.href = "./login.html";
 }
 
 // carregamento (loading)
 function aguardar() {
     var divAguardar = document.getElementById("div_aguardar");
     divAguardar.style.display = "flex";
+}
+
+function sumirResultado() {
+    setTimeout(() => {
+        card_resultado_visivel.style.display = "none"
+    }, 4000);
 }
 
 function finalizarAguardar(texto) {

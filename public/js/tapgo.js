@@ -134,6 +134,7 @@ validarURL();
 
 // redirecionamento 
 function MudarPagina() {
+    sessionStorage.clear();
     window.location.href = "../login.html";
 }
 function Voltar() {

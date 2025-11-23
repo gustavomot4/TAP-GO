@@ -393,3 +393,34 @@ body {
     font-size: 3.0rem;
     color: var(--cor-primaria);
 }
+
+.card-button{
+    display: flex;
+    gap: 40px;
+}
+
+.button-fim-jogo{
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: ease 0.3s;
+    color: #fff;
+}
+
+.button-fim-jogo:hover{
+    transform: translateY(-3px);
+}
+
+.jogar{
+    background-color: var(--cor-primaria);
+    transition: ease 0.3s;
+}
+
+.jogar:hover{
+    background-color: #048b3d;
+}
+
+.dashboard{
+    border: 1px solid var(--cor-secundaria);
+}
