@@ -183,3 +183,9 @@ span {
   align-self: flex-start;
   margin-top: -120px;
 }
+
+
+
+#nome_span, #email_span, #senha_span , #confirmar_senha_span{
+  color:#ff2e2e;
+}

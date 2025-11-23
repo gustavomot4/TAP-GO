@@ -1,58 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tap Go</title>
+    <title>TAP GO - INDEX</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="./style/index.css">
     <link rel="stylesheet" href="./style/navbar.css">
-    <link rel="shortcut icon" href="assets/TAPGO.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+    <link rel="icon" href="./assets/TAPGO.png">
 </head>
 
 <body>
+    <!-- navbar -->
     <div class="navbar">
         <a href="./index.html">
             <div class="navbar-img"></div>
         </a>
-
         <div class="navbar-links">
             <a href="index.html">
                 <div class="navbar-link">Início</div>
-                <a href="sobreMim.html">
-                    <div class="navbar-link">Sobre Mim</div>
-                </a>
+            </a>
+            <a href="sobreMim.html">
+                <div class="navbar-link">Sobre Mim</div>
+            </a>
         </div>
 
         <div class="navbar-buttons">
             <button onclick="MudarPaginaLogin()" id="btn_login" class="login">Login</button>
             <button onclick="MudarPaginaCadastro()" id="btn_cadastro" class="cadastrar">Cadastrar</button>
         </div>
-
     </div>
 
-    <div class="container_hero">
-
+    <div class="hero">
+        <img src="./assets/TAPGO-GRANDE.png" width="200">
+        <p>Conquiste o gol como batedor e defenda como um verdadeiro paredão!</p>
+        <a href="./login.html"><button class="hero-button">Jogar</button></a>
     </div>
 
-    <div class="container_jogo">
-        <div class="hero_conteudo">
-            <img src="./assets/TAPGO-GRANDE.png">
-            <span>
-                Crie seu estilo, desafie seus amigos e conquiste respeito com cada jogada.
-                Com uma gameplay dinâmica e cheia de atitude, Tap Go traz o espírito das peladas, da improvisação e da
-                paixão verdadeira pelo futebol.
-                Aqui, um toque muda tudo.</span>
-            <button>Jogar</button>
+    <!-- conteudo -->
+
+<div class="container-historia">
+    <h2 class="container-titulo">A EVOLUÇÃO DO FUTEBOL</h2>
+
+    <div class="timeline">
+
+        <div class="linha-timeline"></div>
+        
+        <div class="timeline-container">
+
+            <div class="timeline-item item-esquerda">
+                <div class="timeline-card">
+                    <img src="https://static.todamateria.com.br/upload/hi/st/historia-do-futebol-og.jpg?class=ogImageWide"
+                        class="timeline-img">
+                    <div class="timeline-ano">SÉCULO XIX</div>
+                    <div class="timeline-texto">
+                        O futebol moderno nasceu na Inglaterra em 1863, com a fundação da Football Association, que
+                        estabeleceu as primeiras regras universais do esporte. Antes disso, diversas formas de jogos com
+                        bola já existiam em diferentes culturas.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item item-direita">
+                <div class="timeline-card">
+                    <img src="https://s2.static.brasilescola.uol.com.br/be/2022/10/belgica-paraguai-primeira-copa.jpg"
+                        class="timeline-img">
+                    <div class="timeline-ano">1930</div>
+                    <div class="timeline-texto">
+                        A primeira Copa do Mundo foi realizada no Uruguai, com 13 participantes. O país anfitrião
+                        sagrou-se campeão, derrotando a Argentina na final por 4-2. O torneio marcou o início da maior
+                        competição de futebol do planeta.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item item-esquerda">
+                <div class="timeline-card">
+                    <img src="https://s2-ge.glbimg.com/1G9Ui4TSQ3wv-ShGHSNA9JS0KoI=/0x0:4096x2730/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2020/1/f/j03aNBQzAABwuE6EOjiQ/gettyimages-650848322.jpg"
+                        class="timeline-img">
+                    <div class="timeline-ano">1958-1970</div>
+                    <div class="timeline-texto">
+                        A era de ouro do futebol brasileiro, com Pelé se tornando um ícone global. O Brasil conquistou
+                        três Copas do Mundo (1958, 1962 e 1970) e popularizou o "futebol-arte", caracterizado por
+                        dribles, criatividade e jogadas espetaculares.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item item-direita">
+                <div class="timeline-card">
+                    <img src="https://a.espncdn.com/combiner/i?img=%2Fphoto%2F2025%2F0603%2Fr1502108_1296x729_16%2D9.jpg"
+                        alt="Futebol Moderno" class="timeline-img">
+                    <div class="timeline-ano">ANOS 2000</div>
+                    <div class="timeline-texto">
+                        O futebol se tornou um fenômeno global com a comercialização e profissionalização do esporte. A
+                        UEFA Champions League se consolidou como a principal competição de clubes, e jogadores como
+                        Zidane, Ronaldinho e Cristiano Ronaldo se tornaram celebridades mundiais.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Jogadores -->
+<div class="container-jogadores">
+    <h2 class="container-titulo">LENDAS DO FUTEBOL</h2>
+
+    <div class="jogadores-container">
+
+        <div class="jogador-card">
+            <img src="https://lncimg.lance.com.br/cdn-cgi/image/width=950,quality=75,fit=pad,format=webp/uploads/2025/10/maradona-aspect-ratio-512-320.png" class="jogador-img">
+            <div class="jogador-informacao">
+                <h3 class="jogador-nome">DIEGO MARADONA</h3>
+                <div class="jogador-ano">1976-1997</div>
+                <p class="jogador-descricao">Gênio controverso e talentoso, o argentino é lembrado pelo "Gol do Século"
+                    contra a Inglaterra na Copa de 1986 e por sua habilidade técnica incomparável.</p>
+            </div>
+        </div>
+
+        <div class="jogador-card">
+            <img src="https://www.fflch.usp.br/sites/fflch.usp.br/files/2023-12/PEL%C3%89%20CAPA.jpg" class="jogador-img">
+            <div class="jogador-informacao">
+                <h3 class="jogador-nome">PELÉ</h3>
+                <div class="jogador-ano">1956-1977</div>
+                <p class="jogador-descricao">Considerado por muitos o maior jogador de todos os tempos, o brasileiro
+                    conquistou três Copas do Mundo e marcou mais de 1000 gols na carreira.</p>
+            </div>
+        </div>
+
+        <div class="jogador-card">
+            <img src="https://images.futebolinterior.com.br/2022/12/messi-3.jpg" class="jogador-img">
+            <div class="jogador-informacao">
+                <h3 class="jogador-nome">LIONEL MESSI</h3>
+                <div class="jogador-ano">2004-Presente</div>
+                <p class="jogador-descricao">Considerado um dos maiores da história, o argentino conquistou tudo no
+                    futebol de clubes e levou a Argentina ao título da Copa do Mundo de 2022.</p>
+            </div>
         </div>
 
     </div>
+</div>
 
     <!-- Footer -->
     <div class="footer_container">
-
         <div class="atalhos_container">
             <h4>Atalhos</h4> <br>
             <a href="#">Home</a> <br>
@@ -63,11 +156,9 @@
 
         <div class="duvidas_container">
             <h4>Dúvidas</h4> <br>
-
             <a href="">Dúvidas Frequentes</a><br>
             <a href="">Suporte ao Cliente</a><br>
         </div>
-
 
         <div class="contato_email_container">
             <label>
@@ -76,7 +167,6 @@
                 <button>Enviar</button>
             </label>
         </div>
-
     </div>
 
     <div class="direitos_container">
@@ -93,10 +183,18 @@
                     class="fab fa-linkedin social-icon"></i></a>
             <a href="https://github.com/gustavomot4" target="_blank"> <i class="fab fa-github social-icon"></i></a>
         </div>
-
     </div>
 
+    <script>
+        // Funções para navegação (mantidas do código original)
+        function MudarPaginaLogin() {
+            window.location.href = "./login.html";
+        }
+
+        function MudarPaginaCadastro() {
+            window.location.href = "./cadastro.html";
+        }
+    </script>
 </body>
 
 </html>
-<script src="./js/index.js"></script>

@@ -164,3 +164,67 @@ function Login() {
 function sumirMensagem() {
     cardErro.style.display = "none"
 }
+
+function validarEmail() { //Função para validar o email
+    var email = ipt_email_cadastro.value
+    var contador = 0
+
+    if (email.endsWith('sptech.school') || //Se o email terminar com algumas dessas opções, entre no loop (while)
+        email.endsWith('.com') ||
+        email.endsWith('.com.br')) {
+
+        while (contador < email.length) { //Enquanto o contador for menor que o tamanho do texto
+            contador++
+
+            if (email[contador] == '@') { //Percorrendo cada posição do email do usuário para verificar se existe o caractere "@"
+                ipt_email_cadastro.style.border = 'solid 2px #28DF99'
+                email_span.innerHTML = ''
+            }
+        }
+    } else {
+        ipt_email_cadastro.style.border = 'solid 2px red'
+        email_span.innerHTML = 'Formato de email inválido'
+    }
+}
+
+function validarNome() { //Função para verificar se é um nome válido
+    var nome = ipt_nome_cadastro.value
+    var contador = 0
+
+    while (contador < nome.length) { //Enquanto o contador for menor que o tamanho do nome
+        if (nome.length <= 1) { //Se o tamanho do nome for menor ou igual a 1, o nome é inválido
+            ipt_nome_cadastro.style.border = 'solid 2px red'
+            nome_span.innerHTML = 'Insira um nome válido'
+        } else {
+            ipt_nome_cadastro.style.border = 'solid 2px #28DF99'
+            nome_span.innerHTML = ''
+        }
+
+        contador++
+    }
+}
+
+function validarSenha() { //Função que valida a Senha inserida
+    var senha = ipt_senha_cadastro.value
+
+    if (senha.length < 8) { //Se o tamanho da senha for menor que 8 caracteres, ela não será válida
+        senha_span.innerHTML = 'Senha necessita de, no mínimo, 8 caracteres'
+        ipt_senha_cadastro.style.border = 'solid 2px red'
+    } else {
+        senha_span.innerHTML = ''
+        ipt_senha_cadastro.style.border = 'solid 2px #28DF99'
+    }
+}
+
+function validarSenhaRepetida() { //Função que valida a senha repetida
+    var senha = ipt_senha_cadastro.value
+    var senhaRepetida = ipt_senha_confirmada.value
+
+    if (senhaRepetida !== senha || senhaRepetida.length < 8) { //Se as senhas forem diferentes ou se o tamanho da senha repetida for menor que 8, a senha repetida será inválida
+        confirmar_senha_span.innerHTML = 'As senhas precisam ser iguais'
+        ipt_senha_confirmada.style.border = 'solid 2px red'
+    } else {
+        confirmar_senha_span.innerHTML = ''
+        ipt_senha_confirmada.style.border = 'solid 2px #28DF99'
+    }
+}

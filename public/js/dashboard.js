@@ -60,17 +60,13 @@ function buscarUltimo5Jogos() {
 
                     } else if (resposta[i].timeAdversario == 'Meninos do Morro') {
                         imgTimeAdversario = `../assets/escudoMeninosDoMorro.png`
-
-
                     }
-
                     var resultadoJogo = ``
                     if (golsUsuario > golsAdversario) {
                         resultadoJogo = `<p class="venceu">Vitória</p>`
                     } else {
                         resultadoJogo = `<p class="perdeu">Derrota</p>`
                     }
-
 
                     container_jogo.innerHTML += `
                     <div class="card-jogo">

@@ -59,6 +59,7 @@ fetch('../json/times.json') // vai até onde esta o dados
 
         })
 
+
 function EscolherTime(i) {
     var timeEscolhido = timesGlobais[i];
     console.log(timeEscolhido.nome)
@@ -161,7 +162,6 @@ var golsUsuarioEsquerda = 0
 var golsUsuarioMeio = 0
 var golsUsuarioDireita = 0
 
-
 var chutesAdversarioEsquerda = 0
 var chutesAdversarioMeio = 0
 var chutesAdversarioDireita = 0
@@ -169,6 +169,7 @@ var chutesAdversarioDireita = 0
 var golsAdversarioEsquerda = 0
 var golsAdversarioMeio = 0
 var golsAdversarioDireita = 0
+
 
 function Chute(div_canto) {
 

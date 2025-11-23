@@ -7,7 +7,6 @@ router.get("/ultimas/:idUsuario", function (req, res) {
     partidaController.buscarUltimoIDPartida(req, res);
 });
 
-
 router.get("/ultimosJogos/:idUsuario", function (req, res) {
     partidaController.buscarUltimo5Jogos(req, res);
 });

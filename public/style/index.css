@@ -1,71 +1,201 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+ :root {
+     --cor-primaria: #07f468;
+     --cor-secundaria: #ffffff;
+     --cor-fundo-principal: #161616;
+     --cor-fundo-secundario: #252525;
+     --cor-fundo-terciario: #000;
+ }
 
-:root {
-    --cor-primaria: #07f468;
-    --cor-secundaria: #ffffff;
-    --cor-fundo-principal: #161616;
-    --cor-fundo-secundario: #252525;
-    --cor-fundo-terciario: #000;
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     text-decoration: none;
+     font-family: "Anton", sans-serif;
+ }
+
+ /* Hero */
+ .hero {
+     height: 100vh;
+     background: linear-gradient(rgba(0, 0, 0, 0.7)), url('../assets/hero.png');
+     background-size: cover;
+     background-position: center;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     padding: 0 20px;
+ }
+
+ .hero h1 {
+     font-size: 4rem;
+     margin-bottom: 20px;
+     text-transform: uppercase;
+     letter-spacing: 3px;
+ }
+
+ .hero p {
+     font-size: 1.5rem;
+     max-width: 800px;
+     margin-bottom: 30px;
+ }
+
+ .hero-button {
+     background-color: var(--cor-primaria);
+     color: var(--cor-fundo-terciario);
+     border: none;
+     padding: 15px 40px;
+     font-size: 1.2rem;
+     border-radius: 50px;
+     cursor: pointer;
+     transition: all 0.3s;
+     font-weight: bold;
+ }
+
+ .hero-button:hover {
+     background-color: #04c952;
+     transform: scale(1.05);
+ }
+
+
+ /* Conteudo */
+
+.container-historia {
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.container_hero {
-    width: 100%;
-    height: 100vh;
-    background-image: url('../assets/background/principal.png');
-    background-size: cover;
+.container-titulo {
+    font-size: 2.5rem;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 60px;
 }
 
-/* Hero */
-
-.container_jogo {
-    width: 100%;
-    height: 100vh;
-    background-image: url('../assets/background/chute.png');
-
-}
-
-.hero_conteudo {
-    width: 40%;
-    height: 100%;
-    background-image: url('../assets/background/fundoQuadrado.png');
+.timeline{
+    position: relative;
+    width: 70%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
 }
 
-.hero_conteudo img {
-    width: 200px;
-    height: 200px;
-    display: flex;
-}
-
-.hero_conteudo span {
-    width: 70%;
-    font-size: 1.3rem;
-}
-
-.hero_conteudo button {
+.linha-timeline {
+    position: absolute;
+    left: 50%;
+    width: 4px;
+    height: 100%;
     background-color: var(--cor-primaria);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 20px;
-    margin-top: 20px;
 }
 
-.hero_conteudo button:hover {
-    background-color: #04c952;
-    transform: scale(1.05);
+.timeline-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 
+.timeline-item {
+    display: flex;
+    width: 100%;
+    margin-bottom: 60px;
+}
 
+.item-esquerda {
+    padding-right: 50%;
+}
 
-/*INICIO DO FOOTER*/
+.item-direita {
+    justify-content: flex-end;
+    padding-left: 50%;
+}
 
+.timeline-card {
+    width: 90%;
+    padding: 25px;
+    background-color: var(--cor-fundo-secundario);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.timeline-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.timeline-ano {
+    font-size: 1.5rem;
+    color: var(--cor-primaria);
+    margin-bottom: 10px;
+}
+
+.timeline-texto {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Jogadores*/
+.container-jogadores {
+    padding: 80px 60px;
+    background-color: var(--cor-fundo-secundario);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.jogadores-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.jogador-card {
+    background-color: var(--cor-fundo-principal);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+    width: 25%;
+}
+
+.jogador-card:hover {
+    transform: translateY(-10px);
+}
+
+.jogador-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.jogador-informacao {
+    padding: 20px;
+}
+
+.jogador-nome {
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--cor-primaria);
+}
+
+.jogador-ano {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #aaa;
+}
+
+.jogador-descricao {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* footer */
 .footer {
     background-size: cover;
     color: #fff;

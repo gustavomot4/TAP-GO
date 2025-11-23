@@ -4,11 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Faça seu login e Cadastro</title>
     <link rel="stylesheet" href="./style/login.css">
-    <link rel="shortcut icon" href="assets/TAPGO.png" type="image/x-icon">
+    <link rel="icon" href="./assets/TAPGO.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 
 </head>
 
@@ -26,6 +25,7 @@
                 <label>
                     <span>Informe o email:</span>
                     <input id="ipt_email_login" type="text" placeholder="Email:">
+                    <span id=""></span>
                 </label>
                 <label>
                     <span>Informe a senha:</span>
@@ -49,19 +49,26 @@
             <div class="container-cadastro" id="container_cadastro">
                 <label>
                     <span>Informe o seu nome:</span>
-                    <input id="ipt_nome_cadastro" type="text" placeholder="Usuário:">
+                    <input id="ipt_nome_cadastro" type="text" placeholder="Usuário:" oninput="validarNome()">
+                    <span id="nome_span"></span>
                 </label>
                 <label>
                     <span>Informe o email:</span>
-                    <input id="ipt_email_cadastro" type="text" placeholder="Email:">
+                    <input id="ipt_email_cadastro" type="text" placeholder="Email:" oninput="validarEmail()">
+                    <span id="email_span"></span>
+
                 </label>
                 <label>
                     <span>Informe a senha:</span>
-                    <input id="ipt_senha_cadastro" type="password" placeholder="Senha:">
+                    <input id="ipt_senha_cadastro" type="password" placeholder="Senha:" oninput="validarSenha()">
+                    <span id="senha_span"></span>
+
                 </label>
                 <label>
                     <span>Confirme a senha:</span>
-                    <input id="ipt_senha_confirmada" type="password" placeholder="Senha:">
+                    <input id="ipt_senha_confirmada" type="password" placeholder="Senha:"
+                        oninput="validarSenhaRepetida()">
+                    <span id="confirmar_senha_span"></span>
                 </label>
                 <div class="botao-link">
                     <button onclick="Cadastrar()" class="btn-login-cadastrar">
