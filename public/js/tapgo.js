@@ -262,6 +262,8 @@ function Chute(div_canto) {
 
     sessionStorage.GOLS_USUARIO = golsUsuario;
 
+    tela_jogo.style.backgroundImage = "url('../assets/penalty/inicioAdversario.png')";
+
     AtualizarPlacar();
 }
 
@@ -276,18 +278,18 @@ function Defesa(div_canto) {
 
     if (defesa == 'canto_esquerdo') {
         if (chute == 1) {
-            resultado_visivel.innerHTML = `<img src="../assets/penalty/esquerdaDefesa.png" class="resultado">`
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/esqDefesaAdv.png" class="resultado">`
             defesasUsuario++
             chutesAdversarioEsquerda++
             fezGol = 0
         } else if (chute == 2) {
-            resultado_visivel.innerHTML = `<img src="../assets/penalty/meioGoleiroEsquerda.png" class="resultado">`
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/meioGoleiroEsqAdv.png" class="resultado">`
             golsAdversario++
             chutesAdversarioMeio++
             golsAdversarioMeio++
             fezGol = 1
         } else {
-            resultado_visivel.innerHTML = `<img src="../assets/penalty/direitaGoleiroEsquerda.png" class="resultado">`
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/dirGoleiroEsqAdv.png" class="resultado">`
             golsAdversario++
             chutesAdversarioDireita++
             golsAdversarioDireita++
@@ -297,20 +299,20 @@ function Defesa(div_canto) {
     } else if (defesa == 'canto_meio') {
 
         if (chute == 1) {
-            resultado_visivel.innerHTML = `<img src="../assets/penalty/esquerdaGoleiroMeio.png" class="resultado">`
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/esqGoleiroMeioAdv.png" class="resultado">`
             golsAdversario++
             chutesAdversarioEsquerda++
             golsAdversarioEsquerda++
             fezGol = 1
 
         } else if (chute == 2) {
-            resultado_visivel.innerHTML = `<img src="../assets/penalty/meioDefesa.png" class="resultado">`
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/meioDefesaAdv.png" class="resultado">`
             defesasUsuario++
             chutesAdversarioMeio++
             fezGol = 0
 
         } else {
-            resultado_visivel.innerHTML = `<img src="../assets/penalty/direitaGoleiroMeio.png" class="resultado">`
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/dirGoleiroMeioAdv.png" class="resultado">`
             golsAdversario++
             chutesAdversarioDireita++
             golsAdversarioDireita++
@@ -321,19 +323,19 @@ function Defesa(div_canto) {
     } else {
 
         if (chute == 1) {
-            resultado_visivel.innerHTML = `<img src="../assets/penalty/esquerdaGoleiroDireita.png" class="resultado">`
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/esqGoleiroDirAdv.png" class="resultado">`
             golsAdversario++
             chutesAdversarioEsquerda++
             golsAdversarioEsquerda++
             fezGol = 1
         } else if (chute == 2) {
-            resultado_visivel.innerHTML = `<img src="../assets/penalty/meioGoleiroDireita.png" class="resultado">`
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/meioGoleiroDirAdv.png" class="resultado">`
             golsAdversario++
             chutesAdversarioMeio++
             golsAdversarioMeio++
             fezGol = 1
         } else {
-            resultado_visivel.innerHTML = `<img src="../assets/penalty/direitaDefesa.png" class="resultado">`
+            resultado_visivel.innerHTML = `<img src="../assets/penalty/dirDefesaAdv.png" class="resultado">`
             defesasUsuario++
             chutesAdversarioDireita++
             fezGol = 0
@@ -350,6 +352,11 @@ function Defesa(div_canto) {
 
     chutesAdversario++
     sessionStorage.GOLS_ADVERSARIO = golsAdversario;
+
+
+    tela_jogo.style.backgroundImage = "url('../assets/penalty/inicio.png')";
+
+
 
     AtualizarPlacar();
 }

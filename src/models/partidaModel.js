@@ -116,6 +116,7 @@ function cadastrar(
 }
 
 module.exports = {
+    melhoresJogadores,
     buscarUltimoIDPartida,
     buscarUltimo5Jogos,
     buscarTodosJogos,

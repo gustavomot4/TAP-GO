@@ -102,6 +102,18 @@ GROUP BY a.timeAdversario
 ORDER BY vezes DESC
 LIMIT 1;
 
+
+CREATE VIEW vw_todos_jogos AS
+SELECT p.fkUsuario, p.idPartida, p.timeUsuario, a.timeAdversario, 
+		p.golsUsuarioEsquerda , p.golsUsuarioMeio , p.golsUsuarioDireita,
+        p.golsAdversarioEsquerda, p.golsAdversarioMeio , p.golsAdversarioDireita,
+		p.chutesUsuarioEsquerda, p.chutesUsuarioMeio, p.chutesUsuarioDireita,
+		p.chutesAdversarioEsquerda, p.chutesAdversarioMeio, p.chutesAdversarioDireita
+		FROM partida AS p
+        JOIN adversario AS a ON a.idAdversario = p.fkAdversario
+        ORDER BY p.fkUsuario;
+
+
 SELECT * FROM vw_ultimos_5_dados_partidas_do_usuario;
 
 SELECT * FROM  vw_todos_dados_partidas_do_usuario;
@@ -111,3 +123,5 @@ SELECT * FROM vw_todos_dados_partidas_do_usuario;
 SELECT * FROM vw_time_mais_utilizado_usuario;
 
 SELECT * FROM vw_time_mais_enfretado;
+
+SELECT * FROM vw_todos_jogos;

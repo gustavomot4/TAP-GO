@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div class="tela-jogo">
+    <div class="tela-jogo" id="tela_jogo">
 
 
         <button class="btn-sair" id="btn_voltar" onclick="Voltar()" style="display: block;">
@@ -37,12 +37,6 @@
                             <a href="./dashboard.html">
                                 <p>Minha carreira</p>
                             </a>
-                        </div>
-                        <div class="nav-link">
-                            <p>Ranking</p>
-                        </div>
-                        <div class="nav-link">
-                            <p>Como Jogar?</p>
                         </div>
                         <div class="nav-link">
                             <p onclick="MudarPaginaLogin()">Sair</p>
@@ -98,7 +92,7 @@
 
             <!-- chute -->
             <div id="escolher_canto_chute_visivel" style="display: block;">
-                <h2 class="tela-chute-titulo">Chute</h2>
+                <h2 class="tela-chute-titulo">Chute!</h2>
                 <div class="escolher-canto">
                     <div class="canto" id="canto_esquerdo" onclick="Chute(this)"></div>
                     <div class="canto" id="canto_meio" onclick="Chute(this)"></div>
@@ -108,7 +102,7 @@
 
             <!-- defesa -->
             <div id="escolher_canto_defesa_visivel" style="display: none;">
-                <h2 class="tela-chute-titulo">Defenda</h2>
+                <h2 class="tela-chute-titulo">Agarre!</h2>
                 <div class="escolher-canto">
                     <div class="defesa" id="canto_esquerdo" onclick="Defesa(this)"></div>
                     <div class="defesa" id="canto_meio" onclick="Defesa(this)"></div>

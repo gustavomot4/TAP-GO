@@ -120,7 +120,8 @@ function buscarTimeFavorito() {
 buscarTimeFavorito()
 
 function buscarAdversarioMaisEnfrentado() {
-    fetch(`/partida/AdversarioMaisEnfrentado/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+    fetch(`/partida/AdversarioMaisEnfrentado/${idUsuario}`, { cache: 'no-store' })
+    .then(function (response) {
         if (response.ok) {
             response.json().then(function (resposta) {
 
