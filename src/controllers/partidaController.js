@@ -160,7 +160,6 @@ function cadastrar(req, res) {
 }
 
 module.exports = {
-    melhoresJogadores,
     buscarUltimoIDPartida,
     buscarUltimo5Jogos,
     buscarTodosJogos,
