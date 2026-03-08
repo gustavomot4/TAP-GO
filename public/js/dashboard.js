@@ -24,10 +24,10 @@ function buscarUltimo5Jogos() {
                         imgTimeUsuario = `https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Santos_Logo.png/250px-Santos_Logo.png`
 
                     } else if (resposta[i].timeUsuario == 'Ponte Preta') {
-                        imgTimeUsuario = `https://upload.wikimedia.org/wikipedia/commons/7/7e/Escudo_Oficial_Ponte_Preta.png`
+                        imgTimeUsuario = `https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Logo_AA_Ponte_Preta.svg/120px-Logo_AA_Ponte_Preta.svg.png`
 
                     } else if (resposta[i].timeUsuario == 'Guarani') {
-                        imgTimeUsuario = `https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Guarani_FC_%28E%29_-_SP.svg/980px-Guarani_FC_%28E%29_-_SP.svg.png`
+                        imgTimeUsuario = `https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Guarani_Futebol_Clube_logo.svg/1280px-Guarani_Futebol_Clube_logo.svg.png`
 
                     } else if (resposta[i].timeUsuario == 'Juventus da Mooca') {
                         imgTimeUsuario = `https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/CA_Juventus_logo.svg/1200px-CA_Juventus_logo.svg.png`
@@ -49,10 +49,10 @@ function buscarUltimo5Jogos() {
                         imgTimeAdversario = `https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Santos_Logo.png/250px-Santos_Logo.png`
 
                     } else if (resposta[i].timeAdversario == 'Ponte Preta') {
-                        imgTimeAdversario = `https://upload.wikimedia.org/wikipedia/commons/7/7e/Escudo_Oficial_Ponte_Preta.png`
+                        imgTimeAdversario = `https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Logo_AA_Ponte_Preta.svg/120px-Logo_AA_Ponte_Preta.svg.png`
 
                     } else if (resposta[i].timeAdversario == 'Guarani') {
-                        imgTimeAdversario = `https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Guarani_FC_%28E%29_-_SP.svg/980px-Guarani_FC_%28E%29_-_SP.svg.png`
+                        imgTimeAdversario = `https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Guarani_Futebol_Clube_logo.svg/1280px-Guarani_Futebol_Clube_logo.svg.png`
 
 
                     } else if (resposta[i].timeAdversario == 'Juventus da Mooca') {
